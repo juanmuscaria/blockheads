@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'io.github.juanmuscaria'
+version '1.0-SNAPSHOT'
+mainClassName = 'io.github.juanmuscaria.blockheads.Main'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.googlecode.plist', name: 'dd-plist', version: '1.21'
+    compile group: 'org.jline', name: 'jline', version: '3.12.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.0'
+    compile fileTree(dir: 'libraries', include: ['*.jar'])
+}
