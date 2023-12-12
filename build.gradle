@@ -1,22 +1,68 @@
 plugins {
-    id 'java'
     id 'application'
 }
 
-group 'io.github.juanmuscaria'
+group 'com.juanmuscaria'
 version '1.0-SNAPSHOT'
-mainClassName = 'io.github.juanmuscaria.blockheads.Main'
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'com.googlecode.plist', name: 'dd-plist', version: '1.21'
-    compile group: 'org.jline', name: 'jline', version: '3.12.1'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.0'
-    compile fileTree(dir: 'libraries', include: ['*.jar'])
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'org.lmdbjava:lmdbjava:0.8.3'
+    implementation 'com.googlecode.lanterna:lanterna:3.1.1'
+    implementation 'it.unimi.dsi:fastutil:8.5.12'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.2.11'
+
+
+    // Be able to decode objective c stuff
+    implementation 'com.googlecode.plist:dd-plist:1.27'
+
+    // http stuff
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.github.monkeywie:proxyee:1.7.6'
+
+    // Todo: remove in favor of Foreign Memory/Function API
+    implementation 'net.java.dev.jna:jna:5.8.0'
+
+    // Testing stuff I'll never use because who tests codes?
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = 'com.juanmuscaria.blockheads.intercept.BHInterceptor'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['--enable-preview']
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += '--enable-preview'
+    jvmArgs += '--enable-native-access=ALL-UNNAMED'
+    jvmArgs += '--add-opens=java.base/java.nio=ALL-UNNAMED,'
 }
