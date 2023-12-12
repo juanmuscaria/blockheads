@@ -57,7 +57,7 @@ public class BHInterceptor {
             if (realServer != null) {
               throw new IllegalStateException("Inconsistent state! Remote server connected?");
             }
-            realServer = enet_h.enet_host_create(enet_h.NULL(), 1, 2, 0, 0);
+            realServer = enet_h.enet_host_create(enet_h.NULL(), 1, CHANNELS, 0, 0);
             realServerPeer = enet_h.enet_host_connect(realServer, serverHost, 2, 0);
             clientPeer = ENetEvent.peer$get(event);
           } else if (type == enet_h.ENET_EVENT_TYPE_DISCONNECT()) {
