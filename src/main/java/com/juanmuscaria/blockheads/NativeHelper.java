@@ -1,5 +1,7 @@
 package com.juanmuscaria.blockheads;
 
+import com.sun.jna.Platform;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -9,15 +11,24 @@ import java.nio.file.StandardCopyOption;
 public class NativeHelper {
 
   public static void loadLibrary(String libraryName) {
-    String os = System.getProperty("os.name").toLowerCase();
-    String libraryFileName;
+    String libraryFileName = null;
 
-    if (os.contains("win")) {
-      libraryFileName = STR."\{libraryName}.dll";
-    } else if (os.contains("nix") || os.contains("nux")) {
-      libraryFileName = STR."\{libraryName}" + ".so";
-    } else {
-      throw new UnsupportedOperationException(STR."Unsupported operating system: \{os}");
+    if (Platform.isLinux()) {
+      if (Platform.is64Bit() && Platform.isIntel()) {
+        libraryFileName = STR."\{libraryName}_amd64.so";
+      }
+    } else if (Platform.isMac()) {
+      if (Platform.is64Bit()) {
+        if (Platform.isIntel()) {
+          libraryFileName = STR."\{libraryName}_amd64.dylib";
+        } else if (Platform.isARM()) {
+          libraryFileName = STR."\{libraryName}_aarch64.dylib";
+        }
+      }
+    }
+
+    if (libraryFileName == null) {
+      throw new UnsupportedOperationException(STR."Unsupported operating system or arch: \{System.getProperty("os.name")}-\{System.getProperty("os.arch")}");
     }
 
     try (InputStream is = NativeHelper.class.getResourceAsStream(STR."/\{libraryFileName}")) {

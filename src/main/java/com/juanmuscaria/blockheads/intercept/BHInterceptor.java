@@ -27,7 +27,7 @@ public class BHInterceptor {
 
   public static void main(String... args) {
     // Init native stuff
-    NativeHelper.loadLibrary("bundle_libenet");
+    NativeHelper.loadLibrary("libenet");
     enet_h.enet_initialize();
 
     // We don't need any fancy memory sharing here, create a confined allocator

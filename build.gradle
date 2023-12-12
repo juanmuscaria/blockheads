@@ -33,7 +33,6 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.36'
     runtimeOnly 'ch.qos.logback:logback-classic:1.2.11'
 
-
     // Be able to decode objective c stuff
     implementation 'com.googlecode.plist:dd-plist:1.27'
 
@@ -42,7 +41,7 @@ dependencies {
     implementation 'com.github.monkeywie:proxyee:1.7.6'
 
     // Todo: remove in favor of Foreign Memory/Function API
-    implementation 'net.java.dev.jna:jna:5.8.0'
+    implementation 'net.java.dev.jna:jna:5.14.0'
 
     // Testing stuff I'll never use because who tests codes?
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
