@@ -1,9 +1,9 @@
 package com.juanmuscaria.blockheads.network.packets.client;
 
 import com.juanmuscaria.blockheads.network.packets.Packet;
-import com.juanmuscaria.blockheads.old.Utils;
 
 import java.nio.ByteBuffer;
+import java.util.HexFormat;
 
 public class RequestWorldFragment implements Packet {
   public static final byte ID = 0x03;
@@ -34,7 +34,7 @@ public class RequestWorldFragment implements Packet {
     return "RequestWorldFragment{" +
       "x=" + x +
       ", y=" + y +
-      ", unparsed=" + Utils.bytesToHex(unknownData) +
+      ", unparsed=" + HexFormat.of().formatHex(unknownData) +
       '}';
   }
 }

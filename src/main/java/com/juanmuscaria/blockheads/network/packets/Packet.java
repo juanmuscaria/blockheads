@@ -4,13 +4,13 @@ import com.dd.plist.NSArray;
 import com.dd.plist.NSData;
 import com.dd.plist.NSDictionary;
 import com.dd.plist.NSObject;
-import com.juanmuscaria.blockheads.old.Utils;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.HexFormat;
 import java.util.Map;
 
 public interface Packet {
@@ -29,7 +29,7 @@ public interface Packet {
       if (value instanceof NSData data) {
         //var dBytes = new ByteArrayOutputStream();
         //new GZIPInputStream(new ByteArrayInputStream(data.bytes())).transferTo(dBytes);
-        value = Utils.bytesToHex(data.bytes());
+        value = HexFormat.of().formatHex(data.bytes());
       } else if (value instanceof NSDictionary data) {
         logger.info("  ".repeat(depth + 1) + "{}:", stringNSObjectEntry.getKey());
         printDict(data, depth + 1);
