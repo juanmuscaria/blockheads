@@ -2,38 +2,41 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.invoke.MethodHandle;
+
+import static java.lang.foreign.ValueLayout.JAVA_INT;
 final class constants$49 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$49() {}
-    static final MemorySegment const$0 = RuntimeHelper.lookupGlobalVariable("in6addr_loopback", constants$48.const$3);
-    static final StructLayout const$1 = MemoryLayout.structLayout(
-        JAVA_SHORT.withName("sin_family"),
-        JAVA_SHORT.withName("sin_port"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("sin_addr"),
-        MemoryLayout.sequenceLayout(8, JAVA_BYTE).withName("sin_zero")
-    ).withName("sockaddr_in");
-    static final VarHandle const$2 = constants$49.const$1.varHandle(MemoryLayout.PathElement.groupElement("sin_family"));
-    static final VarHandle const$3 = constants$49.const$1.varHandle(MemoryLayout.PathElement.groupElement("sin_port"));
-    static final StructLayout const$4 = MemoryLayout.structLayout(
-        JAVA_SHORT.withName("sin6_family"),
-        JAVA_SHORT.withName("sin6_port"),
-        JAVA_INT.withName("sin6_flowinfo"),
-        MemoryLayout.structLayout(
-            MemoryLayout.unionLayout(
-                MemoryLayout.sequenceLayout(16, JAVA_BYTE).withName("__u6_addr8"),
-                MemoryLayout.sequenceLayout(8, JAVA_SHORT).withName("__u6_addr16"),
-                MemoryLayout.sequenceLayout(4, JAVA_INT).withName("__u6_addr32")
-            ).withName("__in6_u")
-        ).withName("sin6_addr"),
-        JAVA_INT.withName("sin6_scope_id")
-    ).withName("sockaddr_in6");
-    static final VarHandle const$5 = constants$49.const$4.varHandle(MemoryLayout.PathElement.groupElement("sin6_family"));
+
+  static final FunctionDescriptor const$0 = FunctionDescriptor.ofVoid(
+    RuntimeHelper.POINTER,
+    JAVA_INT
+  );
+  static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+    "enet_peer_ping_interval",
+    constants$49.const$0
+  );
+  static final FunctionDescriptor const$2 = FunctionDescriptor.ofVoid(
+    RuntimeHelper.POINTER,
+    JAVA_INT,
+    JAVA_INT,
+    JAVA_INT
+  );
+  static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+    "enet_peer_timeout",
+    constants$49.const$2
+  );
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_peer_reset",
+    constants$11.const$1
+  );
+  static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+    "enet_peer_disconnect",
+    constants$49.const$0
+  );
 }
 
 

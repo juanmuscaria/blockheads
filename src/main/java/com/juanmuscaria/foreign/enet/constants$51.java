@@ -2,59 +2,51 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.invoke.MethodHandle;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$51 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$51() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("imr_multiaddr"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("imr_interface"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("imr_sourceaddr")
-    ).withName("ip_mreq_source");
-    static final StructLayout const$1 = MemoryLayout.structLayout(
-        MemoryLayout.structLayout(
-            MemoryLayout.unionLayout(
-                MemoryLayout.sequenceLayout(16, JAVA_BYTE).withName("__u6_addr8"),
-                MemoryLayout.sequenceLayout(8, JAVA_SHORT).withName("__u6_addr16"),
-                MemoryLayout.sequenceLayout(4, JAVA_INT).withName("__u6_addr32")
-            ).withName("__in6_u")
-        ).withName("ipv6mr_multiaddr"),
-        JAVA_INT.withName("ipv6mr_interface")
-    ).withName("ipv6_mreq");
-    static final VarHandle const$2 = constants$51.const$1.varHandle(MemoryLayout.PathElement.groupElement("ipv6mr_interface"));
-    static final StructLayout const$3 = MemoryLayout.structLayout(
-        JAVA_INT.withName("gr_interface"),
-        MemoryLayout.paddingLayout(4),
-        MemoryLayout.structLayout(
-            JAVA_SHORT.withName("ss_family"),
-            MemoryLayout.sequenceLayout(118, JAVA_BYTE).withName("__ss_padding"),
-            JAVA_LONG.withName("__ss_align")
-        ).withName("gr_group")
-    ).withName("group_req");
-    static final VarHandle const$4 = constants$51.const$3.varHandle(MemoryLayout.PathElement.groupElement("gr_interface"));
-    static final StructLayout const$5 = MemoryLayout.structLayout(
-        JAVA_INT.withName("gsr_interface"),
-        MemoryLayout.paddingLayout(4),
-        MemoryLayout.structLayout(
-            JAVA_SHORT.withName("ss_family"),
-            MemoryLayout.sequenceLayout(118, JAVA_BYTE).withName("__ss_padding"),
-            JAVA_LONG.withName("__ss_align")
-        ).withName("gsr_group"),
-        MemoryLayout.structLayout(
-            JAVA_SHORT.withName("ss_family"),
-            MemoryLayout.sequenceLayout(118, JAVA_BYTE).withName("__ss_padding"),
-            JAVA_LONG.withName("__ss_align")
-        ).withName("gsr_source")
-    ).withName("group_source_req");
+
+  static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+    "enet_peer_setup_outgoing_command",
+    constants$46.const$5
+  );
+  static final FunctionDescriptor const$1 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    JAVA_INT,
+    JAVA_SHORT
+  );
+  static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+    "enet_peer_queue_outgoing_command",
+    constants$51.const$1
+  );
+  static final FunctionDescriptor const$3 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    JAVA_LONG,
+    JAVA_INT,
+    JAVA_INT
+  );
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_peer_queue_incoming_command",
+    constants$51.const$3
+  );
+  static final FunctionDescriptor const$5 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    JAVA_SHORT
+  );
+  static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+    "enet_peer_queue_acknowledgement",
+    constants$51.const$5
+  );
 }
 
 

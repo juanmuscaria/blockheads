@@ -2,34 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$19 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$19() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "rand_r",
-        constants$2.const$0
-    );
-    static final FunctionDescriptor const$1 = FunctionDescriptor.of(JAVA_DOUBLE);
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "drand48",
-        constants$19.const$1
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "erand48",
-        constants$1.const$4
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "lrand48",
-        constants$1.const$2
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "nrand48",
-        constants$2.const$2
-    );
+
+  static final VarHandle const$0 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("reliableSequenceNumber"));
+  static final VarHandle const$1 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("unreliableSequenceNumber"));
+  static final VarHandle const$2 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("fragmentCount"));
+  static final VarHandle const$3 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("fragmentsRemaining"));
+  static final VarHandle const$4 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("fragments"));
+  static final VarHandle const$5 = constants$18.const$5.varHandle(MemoryLayout.PathElement.groupElement("packet"));
 }
 
 

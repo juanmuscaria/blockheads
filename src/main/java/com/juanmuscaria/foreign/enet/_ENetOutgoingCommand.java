@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -25,13 +28,13 @@ import java.lang.foreign.*;
 public class _ENetOutgoingCommand {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$96.const$3;
+      return constants$17.const$1;
     }
     public static MemorySegment outgoingCommandList$slice(MemorySegment seg) {
         return seg.asSlice(0, 16);
     }
     public static VarHandle reliableSequenceNumber$VH() {
-        return constants$96.const$4;
+      return constants$17.const$2;
     }
     /**
      * Getter for field:
@@ -40,7 +43,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static short reliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$96.const$4.get(seg);
+      return (short) constants$17.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -49,16 +52,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void reliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$96.const$4.set(seg, x);
+      constants$17.const$2.set(seg, x);
     }
     public static short reliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$96.const$4.get(seg.asSlice(index*sizeof()));
+      return (short) constants$17.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void reliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$96.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$17.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle unreliableSequenceNumber$VH() {
-        return constants$96.const$5;
+      return constants$17.const$3;
     }
     /**
      * Getter for field:
@@ -67,7 +70,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static short unreliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$96.const$5.get(seg);
+      return (short) constants$17.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -76,16 +79,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void unreliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$96.const$5.set(seg, x);
+      constants$17.const$3.set(seg, x);
     }
     public static short unreliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$96.const$5.get(seg.asSlice(index*sizeof()));
+      return (short) constants$17.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void unreliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$96.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$17.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle sentTime$VH() {
-        return constants$97.const$0;
+      return constants$17.const$4;
     }
     /**
      * Getter for field:
@@ -94,7 +97,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static int sentTime$get(MemorySegment seg) {
-        return (int)constants$97.const$0.get(seg);
+      return (int) constants$17.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -103,16 +106,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void sentTime$set(MemorySegment seg, int x) {
-        constants$97.const$0.set(seg, x);
+      constants$17.const$4.set(seg, x);
     }
     public static int sentTime$get(MemorySegment seg, long index) {
-        return (int)constants$97.const$0.get(seg.asSlice(index*sizeof()));
+      return (int) constants$17.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void sentTime$set(MemorySegment seg, long index, int x) {
-        constants$97.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$17.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle roundTripTimeout$VH() {
-        return constants$97.const$1;
+      return constants$17.const$5;
     }
     /**
      * Getter for field:
@@ -121,7 +124,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static int roundTripTimeout$get(MemorySegment seg) {
-        return (int)constants$97.const$1.get(seg);
+      return (int) constants$17.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -130,16 +133,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void roundTripTimeout$set(MemorySegment seg, int x) {
-        constants$97.const$1.set(seg, x);
+      constants$17.const$5.set(seg, x);
     }
     public static int roundTripTimeout$get(MemorySegment seg, long index) {
-        return (int)constants$97.const$1.get(seg.asSlice(index*sizeof()));
+      return (int) constants$17.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void roundTripTimeout$set(MemorySegment seg, long index, int x) {
-        constants$97.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$17.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle roundTripTimeoutLimit$VH() {
-        return constants$97.const$2;
+      return constants$18.const$0;
     }
     /**
      * Getter for field:
@@ -148,7 +151,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static int roundTripTimeoutLimit$get(MemorySegment seg) {
-        return (int)constants$97.const$2.get(seg);
+      return (int) constants$18.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -157,16 +160,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void roundTripTimeoutLimit$set(MemorySegment seg, int x) {
-        constants$97.const$2.set(seg, x);
+      constants$18.const$0.set(seg, x);
     }
     public static int roundTripTimeoutLimit$get(MemorySegment seg, long index) {
-        return (int)constants$97.const$2.get(seg.asSlice(index*sizeof()));
+      return (int) constants$18.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void roundTripTimeoutLimit$set(MemorySegment seg, long index, int x) {
-        constants$97.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$18.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle fragmentOffset$VH() {
-        return constants$97.const$3;
+      return constants$18.const$1;
     }
     /**
      * Getter for field:
@@ -175,7 +178,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static int fragmentOffset$get(MemorySegment seg) {
-        return (int)constants$97.const$3.get(seg);
+      return (int) constants$18.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -184,16 +187,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void fragmentOffset$set(MemorySegment seg, int x) {
-        constants$97.const$3.set(seg, x);
+      constants$18.const$1.set(seg, x);
     }
     public static int fragmentOffset$get(MemorySegment seg, long index) {
-        return (int)constants$97.const$3.get(seg.asSlice(index*sizeof()));
+      return (int) constants$18.const$1.get(seg.asSlice(index * sizeof()));
     }
     public static void fragmentOffset$set(MemorySegment seg, long index, int x) {
-        constants$97.const$3.set(seg.asSlice(index*sizeof()), x);
+      constants$18.const$1.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle fragmentLength$VH() {
-        return constants$97.const$4;
+      return constants$18.const$2;
     }
     /**
      * Getter for field:
@@ -202,7 +205,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static short fragmentLength$get(MemorySegment seg) {
-        return (short)constants$97.const$4.get(seg);
+      return (short) constants$18.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -211,16 +214,16 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void fragmentLength$set(MemorySegment seg, short x) {
-        constants$97.const$4.set(seg, x);
+      constants$18.const$2.set(seg, x);
     }
     public static short fragmentLength$get(MemorySegment seg, long index) {
-        return (short)constants$97.const$4.get(seg.asSlice(index*sizeof()));
+      return (short) constants$18.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void fragmentLength$set(MemorySegment seg, long index, short x) {
-        constants$97.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$18.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle sendAttempts$VH() {
-        return constants$97.const$5;
+      return constants$18.const$3;
     }
     /**
      * Getter for field:
@@ -229,7 +232,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static short sendAttempts$get(MemorySegment seg) {
-        return (short)constants$97.const$5.get(seg);
+      return (short) constants$18.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -238,19 +241,19 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void sendAttempts$set(MemorySegment seg, short x) {
-        constants$97.const$5.set(seg, x);
+      constants$18.const$3.set(seg, x);
     }
     public static short sendAttempts$get(MemorySegment seg, long index) {
-        return (short)constants$97.const$5.get(seg.asSlice(index*sizeof()));
+      return (short) constants$18.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void sendAttempts$set(MemorySegment seg, long index, short x) {
-        constants$97.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$18.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static MemorySegment command$slice(MemorySegment seg) {
         return seg.asSlice(40, 48);
     }
     public static VarHandle packet$VH() {
-        return constants$98.const$0;
+      return constants$18.const$4;
     }
     /**
      * Getter for field:
@@ -259,7 +262,7 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static MemorySegment packet$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$98.const$0.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$18.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -268,13 +271,13 @@ public class _ENetOutgoingCommand {
      * }
      */
     public static void packet$set(MemorySegment seg, MemorySegment x) {
-        constants$98.const$0.set(seg, x);
+      constants$18.const$4.set(seg, x);
     }
     public static MemorySegment packet$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$98.const$0.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$18.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void packet$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$98.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$18.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

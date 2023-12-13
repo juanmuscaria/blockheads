@@ -2,7 +2,8 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.foreign.*;
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemorySegment;
 
 /**
  * {@snippet :
@@ -13,13 +14,13 @@ public interface ENetPacketFreeCallback {
 
     void apply(java.lang.foreign.MemorySegment _x0);
     static MemorySegment allocate(ENetPacketFreeCallback fi, Arena scope) {
-        return RuntimeHelper.upcallStub(constants$94.const$5, fi, constants$20.const$5, scope);
+      return RuntimeHelper.upcallStub(constants$15.const$3, fi, constants$11.const$1, scope);
     }
     static ENetPacketFreeCallback ofAddress(MemorySegment addr, Arena arena) {
         MemorySegment symbol = addr.reinterpret(arena, null);
         return (java.lang.foreign.MemorySegment __x0) -> {
             try {
-                constants$93.const$2.invokeExact(symbol, __x0);
+              constants$13.const$4.invokeExact(symbol, __x0);
             } catch (Throwable ex$) {
                 throw new AssertionError("should not reach here", ex$);
             }

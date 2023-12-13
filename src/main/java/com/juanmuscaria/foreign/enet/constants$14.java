@@ -2,43 +2,29 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemoryLayout;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
 final class constants$14 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$14() {}
-    static final VarHandle const$0 = constants$13.const$5.varHandle(MemoryLayout.PathElement.groupElement("__align"));
-    static final UnionLayout const$1 = MemoryLayout.unionLayout(
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("__readers"),
-            JAVA_INT.withName("__writers"),
-            JAVA_INT.withName("__wrphase_futex"),
-            JAVA_INT.withName("__writers_futex"),
-            JAVA_INT.withName("__pad3"),
-            JAVA_INT.withName("__pad4"),
-            JAVA_INT.withName("__cur_writer"),
-            JAVA_INT.withName("__shared"),
-            JAVA_BYTE.withName("__rwelision"),
-            MemoryLayout.sequenceLayout(7, JAVA_BYTE).withName("__pad1"),
-            JAVA_LONG.withName("__pad2"),
-            JAVA_INT.withName("__flags"),
-            MemoryLayout.paddingLayout(4)
-        ).withName("__data"),
-        MemoryLayout.sequenceLayout(56, JAVA_BYTE).withName("__size"),
-        JAVA_LONG.withName("__align")
-    ).withName("");
-    static final VarHandle const$2 = constants$14.const$1.varHandle(MemoryLayout.PathElement.groupElement("__align"));
-    static final UnionLayout const$3 = MemoryLayout.unionLayout(
-        MemoryLayout.sequenceLayout(8, JAVA_BYTE).withName("__size"),
-        JAVA_LONG.withName("__align")
-    ).withName("");
-    static final VarHandle const$4 = constants$14.const$3.varHandle(MemoryLayout.PathElement.groupElement("__align"));
+
+  static final FunctionDescriptor const$0 = FunctionDescriptor.ofVoid();
+  static final MethodHandle const$1 = RuntimeHelper.upcallHandle(_ENetCallbacks.no_memory.class, "apply", constants$14.const$0);
+  static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+    constants$14.const$0
+  );
+  static final VarHandle const$3 = constants$12.const$4.varHandle(MemoryLayout.PathElement.groupElement("no_memory"));
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_malloc",
+    constants$12.const$5
+  );
     static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "random",
-        constants$1.const$2
+      "enet_free",
+      constants$11.const$1
     );
 }
 

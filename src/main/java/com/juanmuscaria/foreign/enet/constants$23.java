@@ -2,40 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$23 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$23() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "seed48_r",
-        constants$17.const$2
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "lcong48_r",
-        constants$17.const$2
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "arc4random",
-        constants$18.const$3
-    );
-    static final FunctionDescriptor const$3 = FunctionDescriptor.ofVoid(
-        RuntimeHelper.POINTER,
-        JAVA_LONG
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "arc4random_buf",
-        constants$23.const$3
-    );
-    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT,
-        JAVA_INT
-    );
-    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
-        "arc4random_uniform",
-        constants$23.const$5
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingBandwidth"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingBandwidthThrottleEpoch"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingBandwidthThrottleEpoch"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingDataTotal"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingDataTotal"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("lastSendTime"));
 }
 
 

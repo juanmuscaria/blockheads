@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -16,10 +19,10 @@ import java.lang.foreign.*;
 public class _ENetListNode {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$90.const$5;
+      return constants$10.const$3;
     }
     public static VarHandle next$VH() {
-        return constants$91.const$0;
+      return constants$10.const$4;
     }
     /**
      * Getter for field:
@@ -28,7 +31,7 @@ public class _ENetListNode {
      * }
      */
     public static MemorySegment next$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$91.const$0.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$10.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -37,16 +40,16 @@ public class _ENetListNode {
      * }
      */
     public static void next$set(MemorySegment seg, MemorySegment x) {
-        constants$91.const$0.set(seg, x);
+      constants$10.const$4.set(seg, x);
     }
     public static MemorySegment next$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$91.const$0.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$10.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void next$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$91.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$10.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle previous$VH() {
-        return constants$91.const$1;
+      return constants$10.const$5;
     }
     /**
      * Getter for field:
@@ -55,7 +58,7 @@ public class _ENetListNode {
      * }
      */
     public static MemorySegment previous$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$91.const$1.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$10.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -64,13 +67,13 @@ public class _ENetListNode {
      * }
      */
     public static void previous$set(MemorySegment seg, MemorySegment x) {
-        constants$91.const$1.set(seg, x);
+      constants$10.const$5.set(seg, x);
     }
     public static MemorySegment previous$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$91.const$1.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$10.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void previous$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$91.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$10.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

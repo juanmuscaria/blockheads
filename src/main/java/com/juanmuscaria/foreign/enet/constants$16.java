@@ -2,28 +2,157 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$16 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$16() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        RuntimeHelper.POINTER.withName("fptr"),
-        RuntimeHelper.POINTER.withName("rptr"),
-        RuntimeHelper.POINTER.withName("state"),
-        JAVA_INT.withName("rand_type"),
-        JAVA_INT.withName("rand_deg"),
-        JAVA_INT.withName("rand_sep"),
-        MemoryLayout.paddingLayout(4),
-        RuntimeHelper.POINTER.withName("end_ptr")
-    ).withName("random_data");
-    static final VarHandle const$1 = constants$16.const$0.varHandle(MemoryLayout.PathElement.groupElement("fptr"));
-    static final VarHandle const$2 = constants$16.const$0.varHandle(MemoryLayout.PathElement.groupElement("rptr"));
-    static final VarHandle const$3 = constants$16.const$0.varHandle(MemoryLayout.PathElement.groupElement("state"));
-    static final VarHandle const$4 = constants$16.const$0.varHandle(MemoryLayout.PathElement.groupElement("rand_type"));
-    static final VarHandle const$5 = constants$16.const$0.varHandle(MemoryLayout.PathElement.groupElement("rand_deg"));
+
+  static final VarHandle const$0 = constants$15.const$4.varHandle(MemoryLayout.PathElement.groupElement("flags"));
+  static final VarHandle const$1 = constants$15.const$4.varHandle(MemoryLayout.PathElement.groupElement("data"));
+  static final VarHandle const$2 = constants$15.const$4.varHandle(MemoryLayout.PathElement.groupElement("dataLength"));
+  static final VarHandle const$3 = constants$15.const$4.varHandle(MemoryLayout.PathElement.groupElement("freeCallback"));
+  static final VarHandle const$4 = constants$15.const$4.varHandle(MemoryLayout.PathElement.groupElement("userData"));
+  static final StructLayout const$5 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      RuntimeHelper.POINTER.withName("next"),
+      RuntimeHelper.POINTER.withName("previous")
+    ).withName("acknowledgementList"),
+    JAVA_INT.withName("sentTime"),
+    MemoryLayout.unionLayout(
+      MemoryLayout.structLayout(
+        JAVA_BYTE.withName("command"),
+        JAVA_BYTE.withName("channelID"),
+        JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+      ).withName("header"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("receivedReliableSequenceNumber"),
+        JAVA_SHORT.withByteAlignment(1).withName("receivedSentTime")
+      ).withName("acknowledge"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("outgoingPeerID"),
+        JAVA_BYTE.withName("incomingSessionID"),
+        JAVA_BYTE.withName("outgoingSessionID"),
+        JAVA_INT.withByteAlignment(1).withName("mtu"),
+        JAVA_INT.withByteAlignment(1).withName("windowSize"),
+        JAVA_INT.withByteAlignment(1).withName("channelCount"),
+        JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+        JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration"),
+        JAVA_INT.withByteAlignment(1).withName("connectID"),
+        JAVA_INT.withByteAlignment(1).withName("data")
+      ).withName("connect"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("outgoingPeerID"),
+        JAVA_BYTE.withName("incomingSessionID"),
+        JAVA_BYTE.withName("outgoingSessionID"),
+        JAVA_INT.withByteAlignment(1).withName("mtu"),
+        JAVA_INT.withByteAlignment(1).withName("windowSize"),
+        JAVA_INT.withByteAlignment(1).withName("channelCount"),
+        JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+        JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration"),
+        JAVA_INT.withByteAlignment(1).withName("connectID")
+      ).withName("verifyConnect"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_INT.withByteAlignment(1).withName("data")
+      ).withName("disconnect"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header")
+      ).withName("ping"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("dataLength")
+      ).withName("sendReliable"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("unreliableSequenceNumber"),
+        JAVA_SHORT.withByteAlignment(1).withName("dataLength")
+      ).withName("sendUnreliable"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("unsequencedGroup"),
+        JAVA_SHORT.withByteAlignment(1).withName("dataLength")
+      ).withName("sendUnsequenced"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_SHORT.withByteAlignment(1).withName("startSequenceNumber"),
+        JAVA_SHORT.withByteAlignment(1).withName("dataLength"),
+        JAVA_INT.withByteAlignment(1).withName("fragmentCount"),
+        JAVA_INT.withByteAlignment(1).withName("fragmentNumber"),
+        JAVA_INT.withByteAlignment(1).withName("totalLength"),
+        JAVA_INT.withByteAlignment(1).withName("fragmentOffset")
+      ).withName("sendFragment"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+        JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth")
+      ).withName("bandwidthLimit"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          JAVA_BYTE.withName("command"),
+          JAVA_BYTE.withName("channelID"),
+          JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+        ).withName("header"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+        JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration")
+      ).withName("throttleConfigure")
+    ).withName("command"),
+    MemoryLayout.paddingLayout(4)
+  ).withName("_ENetAcknowledgement");
 }
 
 

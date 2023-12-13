@@ -2,37 +2,119 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$21 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$21() {}
     static final StructLayout const$0 = MemoryLayout.structLayout(
-        MemoryLayout.sequenceLayout(3, JAVA_SHORT).withName("__x"),
-        MemoryLayout.sequenceLayout(3, JAVA_SHORT).withName("__old_x"),
-        JAVA_SHORT.withName("__c"),
-        JAVA_SHORT.withName("__init"),
-        JAVA_LONG.withName("__a")
-    ).withName("drand48_data");
-    static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("__c"));
-    static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("__init"));
-    static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("__a"));
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "drand48_r",
-        constants$17.const$2
-    );
-    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
-        "erand48_r",
-        constants$21.const$5
-    );
+      MemoryLayout.structLayout(
+        RuntimeHelper.POINTER.withName("next"),
+        RuntimeHelper.POINTER.withName("previous")
+      ).withName("dispatchList"),
+      RuntimeHelper.POINTER.withName("host"),
+      JAVA_SHORT.withName("outgoingPeerID"),
+      JAVA_SHORT.withName("incomingPeerID"),
+      JAVA_INT.withName("connectID"),
+      JAVA_BYTE.withName("outgoingSessionID"),
+      JAVA_BYTE.withName("incomingSessionID"),
+      MemoryLayout.paddingLayout(2),
+      MemoryLayout.structLayout(
+        JAVA_INT.withName("host"),
+        JAVA_SHORT.withName("port"),
+        MemoryLayout.paddingLayout(2)
+      ).withName("address"),
+      MemoryLayout.paddingLayout(4),
+      RuntimeHelper.POINTER.withName("data"),
+      JAVA_INT.withName("state"),
+      MemoryLayout.paddingLayout(4),
+      RuntimeHelper.POINTER.withName("channels"),
+      JAVA_LONG.withName("channelCount"),
+      JAVA_INT.withName("incomingBandwidth"),
+      JAVA_INT.withName("outgoingBandwidth"),
+      JAVA_INT.withName("incomingBandwidthThrottleEpoch"),
+      JAVA_INT.withName("outgoingBandwidthThrottleEpoch"),
+      JAVA_INT.withName("incomingDataTotal"),
+      JAVA_INT.withName("outgoingDataTotal"),
+      JAVA_INT.withName("lastSendTime"),
+      JAVA_INT.withName("lastReceiveTime"),
+      JAVA_INT.withName("nextTimeout"),
+      JAVA_INT.withName("earliestTimeout"),
+      JAVA_INT.withName("packetLossEpoch"),
+      JAVA_INT.withName("packetsSent"),
+      JAVA_INT.withName("packetsLost"),
+      JAVA_INT.withName("packetLoss"),
+      JAVA_INT.withName("packetLossVariance"),
+      JAVA_INT.withName("packetThrottle"),
+      JAVA_INT.withName("packetThrottleLimit"),
+      JAVA_INT.withName("packetThrottleCounter"),
+      JAVA_INT.withName("packetThrottleEpoch"),
+      JAVA_INT.withName("packetThrottleAcceleration"),
+      JAVA_INT.withName("packetThrottleDeceleration"),
+      JAVA_INT.withName("packetThrottleInterval"),
+      JAVA_INT.withName("pingInterval"),
+      JAVA_INT.withName("timeoutLimit"),
+      JAVA_INT.withName("timeoutMinimum"),
+      JAVA_INT.withName("timeoutMaximum"),
+      JAVA_INT.withName("lastRoundTripTime"),
+      JAVA_INT.withName("lowestRoundTripTime"),
+      JAVA_INT.withName("lastRoundTripTimeVariance"),
+      JAVA_INT.withName("highestRoundTripTimeVariance"),
+      JAVA_INT.withName("roundTripTime"),
+      JAVA_INT.withName("roundTripTimeVariance"),
+      JAVA_INT.withName("mtu"),
+      JAVA_INT.withName("windowSize"),
+      JAVA_INT.withName("reliableDataInTransit"),
+      JAVA_SHORT.withName("outgoingReliableSequenceNumber"),
+      MemoryLayout.paddingLayout(2),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          RuntimeHelper.POINTER.withName("next"),
+          RuntimeHelper.POINTER.withName("previous")
+        ).withName("sentinel")
+      ).withName("acknowledgements"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          RuntimeHelper.POINTER.withName("next"),
+          RuntimeHelper.POINTER.withName("previous")
+        ).withName("sentinel")
+      ).withName("sentReliableCommands"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          RuntimeHelper.POINTER.withName("next"),
+          RuntimeHelper.POINTER.withName("previous")
+        ).withName("sentinel")
+      ).withName("sentUnreliableCommands"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          RuntimeHelper.POINTER.withName("next"),
+          RuntimeHelper.POINTER.withName("previous")
+        ).withName("sentinel")
+      ).withName("outgoingCommands"),
+      MemoryLayout.structLayout(
+        MemoryLayout.structLayout(
+          RuntimeHelper.POINTER.withName("next"),
+          RuntimeHelper.POINTER.withName("previous")
+        ).withName("sentinel")
+      ).withName("dispatchedCommands"),
+      JAVA_SHORT.withName("flags"),
+      JAVA_SHORT.withName("reserved"),
+      JAVA_SHORT.withName("incomingUnsequencedGroup"),
+      JAVA_SHORT.withName("outgoingUnsequencedGroup"),
+      MemoryLayout.sequenceLayout(32, JAVA_INT).withName("unsequencedWindow"),
+      JAVA_INT.withName("eventData"),
+      MemoryLayout.paddingLayout(4),
+      JAVA_LONG.withName("totalWaitingData")
+    ).withName("_ENetPeer");
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("host"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingPeerID"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingPeerID"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("connectID"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingSessionID"));
 }
 
 

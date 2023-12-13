@@ -2,39 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$2 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$2() {}
-    static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_INT,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "atoi",
-        constants$2.const$0
-    );
-    static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_LONG,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "atol",
-        constants$2.const$2
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "atoll",
-        constants$2.const$2
-    );
-    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_DOUBLE,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
-        "strtod",
-        constants$2.const$5
-    );
+
+  static final VarHandle const$0 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("incomingSessionID"));
+  static final VarHandle const$1 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("outgoingSessionID"));
+  static final VarHandle const$2 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("mtu"));
+  static final VarHandle const$3 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("windowSize"));
+  static final VarHandle const$4 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("channelCount"));
+  static final VarHandle const$5 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("incomingBandwidth"));
 }
 
 

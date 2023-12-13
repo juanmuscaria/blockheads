@@ -16,10 +16,10 @@ import java.lang.foreign.*;
 public class _ENetAddress {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$94.const$2;
+        return constants$15.const$0;
     }
     public static VarHandle host$VH() {
-        return constants$94.const$3;
+        return constants$15.const$1;
     }
     /**
      * Getter for field:
@@ -28,7 +28,7 @@ public class _ENetAddress {
      * }
      */
     public static int host$get(MemorySegment seg) {
-        return (int)constants$94.const$3.get(seg);
+        return (int) constants$15.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -37,16 +37,16 @@ public class _ENetAddress {
      * }
      */
     public static void host$set(MemorySegment seg, int x) {
-        constants$94.const$3.set(seg, x);
+        constants$15.const$1.set(seg, x);
     }
     public static int host$get(MemorySegment seg, long index) {
-        return (int)constants$94.const$3.get(seg.asSlice(index*sizeof()));
+        return (int) constants$15.const$1.get(seg.asSlice(index * sizeof()));
     }
     public static void host$set(MemorySegment seg, long index, int x) {
-        constants$94.const$3.set(seg.asSlice(index*sizeof()), x);
+        constants$15.const$1.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle port$VH() {
-        return constants$94.const$4;
+        return constants$15.const$2;
     }
     /**
      * Getter for field:
@@ -55,7 +55,7 @@ public class _ENetAddress {
      * }
      */
     public static short port$get(MemorySegment seg) {
-        return (short)constants$94.const$4.get(seg);
+        return (short) constants$15.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -64,13 +64,13 @@ public class _ENetAddress {
      * }
      */
     public static void port$set(MemorySegment seg, short x) {
-        constants$94.const$4.set(seg, x);
+        constants$15.const$2.set(seg, x);
     }
     public static short port$get(MemorySegment seg, long index) {
-        return (short)constants$94.const$4.get(seg.asSlice(index*sizeof()));
+        return (short) constants$15.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void port$set(MemorySegment seg, long index, short x) {
-        constants$94.const$4.set(seg.asSlice(index*sizeof()), x);
+        constants$15.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

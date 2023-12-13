@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -17,13 +20,13 @@ import java.lang.foreign.*;
 public class _ENetProtocolSendUnsequenced {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$89.const$0;
+      return constants$8.const$4;
     }
     public static MemorySegment header$slice(MemorySegment seg) {
         return seg.asSlice(0, 4);
     }
     public static VarHandle unsequencedGroup$VH() {
-        return constants$89.const$1;
+      return constants$8.const$5;
     }
     /**
      * Getter for field:
@@ -32,7 +35,7 @@ public class _ENetProtocolSendUnsequenced {
      * }
      */
     public static short unsequencedGroup$get(MemorySegment seg) {
-        return (short)constants$89.const$1.get(seg);
+      return (short) constants$8.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -41,16 +44,16 @@ public class _ENetProtocolSendUnsequenced {
      * }
      */
     public static void unsequencedGroup$set(MemorySegment seg, short x) {
-        constants$89.const$1.set(seg, x);
+      constants$8.const$5.set(seg, x);
     }
     public static short unsequencedGroup$get(MemorySegment seg, long index) {
-        return (short)constants$89.const$1.get(seg.asSlice(index*sizeof()));
+      return (short) constants$8.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void unsequencedGroup$set(MemorySegment seg, long index, short x) {
-        constants$89.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$8.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle dataLength$VH() {
-        return constants$89.const$2;
+      return constants$9.const$0;
     }
     /**
      * Getter for field:
@@ -59,7 +62,7 @@ public class _ENetProtocolSendUnsequenced {
      * }
      */
     public static short dataLength$get(MemorySegment seg) {
-        return (short)constants$89.const$2.get(seg);
+      return (short) constants$9.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -68,13 +71,13 @@ public class _ENetProtocolSendUnsequenced {
      * }
      */
     public static void dataLength$set(MemorySegment seg, short x) {
-        constants$89.const$2.set(seg, x);
+      constants$9.const$0.set(seg, x);
     }
     public static short dataLength$get(MemorySegment seg, long index) {
-        return (short)constants$89.const$2.get(seg.asSlice(index*sizeof()));
+      return (short) constants$9.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void dataLength$set(MemorySegment seg, long index, short x) {
-        constants$89.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$9.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

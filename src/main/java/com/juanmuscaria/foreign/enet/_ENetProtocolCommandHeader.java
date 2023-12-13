@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -17,10 +20,10 @@ import java.lang.foreign.*;
 public class _ENetProtocolCommandHeader {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$80.const$5;
+      return constants$0.const$3;
     }
     public static VarHandle command$VH() {
-        return constants$81.const$0;
+      return constants$0.const$4;
     }
     /**
      * Getter for field:
@@ -29,7 +32,7 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static byte command$get(MemorySegment seg) {
-        return (byte)constants$81.const$0.get(seg);
+      return (byte) constants$0.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -38,16 +41,16 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static void command$set(MemorySegment seg, byte x) {
-        constants$81.const$0.set(seg, x);
+      constants$0.const$4.set(seg, x);
     }
     public static byte command$get(MemorySegment seg, long index) {
-        return (byte)constants$81.const$0.get(seg.asSlice(index*sizeof()));
+      return (byte) constants$0.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void command$set(MemorySegment seg, long index, byte x) {
-        constants$81.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$0.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle channelID$VH() {
-        return constants$81.const$1;
+      return constants$0.const$5;
     }
     /**
      * Getter for field:
@@ -56,7 +59,7 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static byte channelID$get(MemorySegment seg) {
-        return (byte)constants$81.const$1.get(seg);
+      return (byte) constants$0.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -65,16 +68,16 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static void channelID$set(MemorySegment seg, byte x) {
-        constants$81.const$1.set(seg, x);
+      constants$0.const$5.set(seg, x);
     }
     public static byte channelID$get(MemorySegment seg, long index) {
-        return (byte)constants$81.const$1.get(seg.asSlice(index*sizeof()));
+      return (byte) constants$0.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void channelID$set(MemorySegment seg, long index, byte x) {
-        constants$81.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$0.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle reliableSequenceNumber$VH() {
-        return constants$81.const$2;
+      return constants$1.const$0;
     }
     /**
      * Getter for field:
@@ -83,7 +86,7 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static short reliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$81.const$2.get(seg);
+      return (short) constants$1.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -92,13 +95,13 @@ public class _ENetProtocolCommandHeader {
      * }
      */
     public static void reliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$81.const$2.set(seg, x);
+      constants$1.const$0.set(seg, x);
     }
     public static short reliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$81.const$2.get(seg.asSlice(index*sizeof()));
+      return (short) constants$1.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void reliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$81.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$1.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

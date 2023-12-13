@@ -2,7 +2,10 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.foreign.*;
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 
 /**
  * {@snippet :
@@ -14,7 +17,7 @@ import java.lang.foreign.*;
 public class _ENetList {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$91.const$2;
+      return constants$11.const$0;
     }
     public static MemorySegment sentinel$slice(MemorySegment seg) {
         return seg.asSlice(0, 16);

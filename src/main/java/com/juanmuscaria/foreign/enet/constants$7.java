@@ -2,31 +2,42 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$7 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$7() {}
-    static final UnionLayout const$0 = MemoryLayout.unionLayout(
-        JAVA_LONG.withName("__value64"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("__low"),
-            JAVA_INT.withName("__high")
-        ).withName("__value32")
-    ).withName("");
-    static final VarHandle const$1 = constants$7.const$0.varHandle(MemoryLayout.PathElement.groupElement("__value64"));
+
+  static final VarHandle const$0 = constants$6.const$4.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleAcceleration"));
+  static final VarHandle const$1 = constants$6.const$4.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleDeceleration"));
     static final StructLayout const$2 = MemoryLayout.structLayout(
-        JAVA_INT.withName("__low"),
-        JAVA_INT.withName("__high")
-    ).withName("");
-    static final VarHandle const$3 = constants$7.const$2.varHandle(MemoryLayout.PathElement.groupElement("__low"));
-    static final VarHandle const$4 = constants$7.const$2.varHandle(MemoryLayout.PathElement.groupElement("__high"));
+      MemoryLayout.structLayout(
+        JAVA_BYTE.withName("command"),
+        JAVA_BYTE.withName("channelID"),
+        JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+      ).withName("header"),
+      JAVA_INT.withByteAlignment(1).withName("data")
+    ).withName("_ENetProtocolDisconnect");
+  static final VarHandle const$3 = constants$7.const$2.varHandle(MemoryLayout.PathElement.groupElement("data"));
+  static final StructLayout const$4 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header")
+  ).withName("_ENetProtocolPing");
     static final StructLayout const$5 = MemoryLayout.structLayout(
-        RuntimeHelper.POINTER.withName("__prev"),
-        RuntimeHelper.POINTER.withName("__next")
-    ).withName("__pthread_internal_list");
+      MemoryLayout.structLayout(
+        JAVA_BYTE.withName("command"),
+        JAVA_BYTE.withName("channelID"),
+        JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+      ).withName("header"),
+      JAVA_SHORT.withByteAlignment(1).withName("dataLength")
+    ).withName("_ENetProtocolSendReliable");
 }
 
 

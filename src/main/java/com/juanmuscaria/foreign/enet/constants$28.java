@@ -2,42 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$28 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$28() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "exit",
-        constants$15.const$0
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "quick_exit",
-        constants$15.const$0
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "_Exit",
-        constants$15.const$0
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "getenv",
-        constants$15.const$4
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "putenv",
-        constants$2.const$0
-    );
-    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        JAVA_INT
-    );
-    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
-        "setenv",
-        constants$28.const$5
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("roundTripTimeVariance"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("mtu"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("windowSize"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("reliableDataInTransit"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingReliableSequenceNumber"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("flags"));
 }
 
 

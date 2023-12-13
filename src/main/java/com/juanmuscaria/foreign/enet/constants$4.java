@@ -2,36 +2,40 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
+import java.lang.invoke.VarHandle;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$4 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$4() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "strtouq",
-        constants$3.const$2
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "strtoll",
-        constants$3.const$2
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "strtoull",
-        constants$3.const$2
-    );
-    static final FunctionDescriptor const$3 = FunctionDescriptor.of(RuntimeHelper.POINTER,
-        JAVA_LONG
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "l64a",
-        constants$4.const$3
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "a64l",
-        constants$2.const$2
-    );
+
+  static final StructLayout const$0 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_SHORT.withByteAlignment(1).withName("outgoingPeerID"),
+    JAVA_BYTE.withName("incomingSessionID"),
+    JAVA_BYTE.withName("outgoingSessionID"),
+    JAVA_INT.withByteAlignment(1).withName("mtu"),
+    JAVA_INT.withByteAlignment(1).withName("windowSize"),
+    JAVA_INT.withByteAlignment(1).withName("channelCount"),
+    JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+    JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration"),
+    JAVA_INT.withByteAlignment(1).withName("connectID")
+  ).withName("_ENetProtocolVerifyConnect");
+  static final VarHandle const$1 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingPeerID"));
+  static final VarHandle const$2 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingSessionID"));
+  static final VarHandle const$3 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingSessionID"));
+  static final VarHandle const$4 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("mtu"));
+  static final VarHandle const$5 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("windowSize"));
 }
 
 

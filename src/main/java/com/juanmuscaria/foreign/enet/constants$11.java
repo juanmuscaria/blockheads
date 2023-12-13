@@ -2,19 +2,44 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
+import java.lang.invoke.MethodHandle;
 
 final class constants$11 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$11() {}
-    static final VarHandle const$0 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__pad4"));
-    static final VarHandle const$1 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__cur_writer"));
-    static final VarHandle const$2 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__shared"));
-    static final VarHandle const$3 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__rwelision"));
-    static final VarHandle const$4 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__pad2"));
-    static final VarHandle const$5 = constants$10.const$0.varHandle(MemoryLayout.PathElement.groupElement("__flags"));
+
+  static final StructLayout const$0 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      RuntimeHelper.POINTER.withName("next"),
+      RuntimeHelper.POINTER.withName("previous")
+    ).withName("sentinel")
+  ).withName("_ENetList");
+  static final FunctionDescriptor const$1 = FunctionDescriptor.ofVoid(
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+    "enet_list_clear",
+    constants$11.const$1
+  );
+  static final FunctionDescriptor const$3 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_list_insert",
+    constants$11.const$3
+  );
+  static final FunctionDescriptor const$5 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+    "enet_list_remove",
+    constants$11.const$5
+  );
 }
 
 

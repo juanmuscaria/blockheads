@@ -2,34 +2,40 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.FunctionDescriptor;
 import java.lang.invoke.MethodHandle;
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
+import static java.lang.foreign.ValueLayout.JAVA_INT;
+import static java.lang.foreign.ValueLayout.JAVA_LONG;
 final class constants$47 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$47() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "accept",
-        constants$37.const$2
+
+  static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_INT,
+    RuntimeHelper.POINTER
     );
     static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "shutdown",
-        constants$46.const$5
+      "enet_host_compress_with_range_coder",
+      constants$47.const$0
     );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "sockatmark",
-        constants$23.const$5
+  static final FunctionDescriptor const$2 = FunctionDescriptor.ofVoid(
+    RuntimeHelper.POINTER,
+    JAVA_LONG
     );
     static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "isfdtype",
-        constants$46.const$5
+      "enet_host_channel_limit",
+      constants$47.const$2
     );
-    static final StructLayout const$4 = MemoryLayout.structLayout(
-        JAVA_INT.withName("s_addr")
-    ).withName("in_addr");
-    static final VarHandle const$5 = constants$47.const$4.varHandle(MemoryLayout.PathElement.groupElement("s_addr"));
+  static final FunctionDescriptor const$4 = FunctionDescriptor.ofVoid(
+    RuntimeHelper.POINTER,
+    JAVA_INT,
+    JAVA_INT
+    );
+  static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+    "enet_host_bandwidth_limit",
+    constants$47.const$4
+  );
 }
 
 

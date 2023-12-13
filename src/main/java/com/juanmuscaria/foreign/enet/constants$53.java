@@ -2,31 +2,37 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
+import static java.lang.foreign.ValueLayout.JAVA_BYTE;
+import static java.lang.foreign.ValueLayout.JAVA_LONG;
 final class constants$53 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$53() {}
-    static final VarHandle const$0 = constants$52.const$4.varHandle(MemoryLayout.PathElement.groupElement("gf_fmode"));
-    static final VarHandle const$1 = constants$52.const$4.varHandle(MemoryLayout.PathElement.groupElement("gf_numsrc"));
+
+  static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+    "enet_range_coder_destroy",
+    constants$11.const$1
+  );
+  static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+    "enet_range_coder_compress",
+    constants$30.const$1
+  );
     static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "ntohl",
-        constants$23.const$5
+      "enet_range_coder_decompress",
+      constants$30.const$5
     );
-    static final FunctionDescriptor const$3 = FunctionDescriptor.of(JAVA_SHORT,
-        JAVA_SHORT
+  static final FunctionDescriptor const$3 = FunctionDescriptor.of(JAVA_LONG,
+    JAVA_BYTE
     );
     static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "ntohs",
+      "enet_protocol_command_size",
         constants$53.const$3
     );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "htonl",
-        constants$23.const$5
-    );
+  static final MemorySegment const$5 = MemorySegment.ofAddress(0L);
 }
 
 

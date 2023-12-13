@@ -17,7 +17,7 @@ import java.lang.foreign.*;
 public class _ENetCallbacks {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$92.const$3;
+      return constants$12.const$4;
     }
     /**
      * {@snippet :
@@ -28,13 +28,13 @@ public class _ENetCallbacks {
 
         java.lang.foreign.MemorySegment apply(long _x0);
         static MemorySegment allocate(malloc fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$92.const$4, fi, constants$4.const$3, scope);
+          return RuntimeHelper.upcallStub(constants$13.const$0, fi, constants$12.const$5, scope);
         }
         static malloc ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return (long __x0) -> {
                 try {
-                    return (java.lang.foreign.MemorySegment)constants$92.const$5.invokeExact(symbol, __x0);
+                  return (java.lang.foreign.MemorySegment) constants$13.const$1.invokeExact(symbol, __x0);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -43,7 +43,7 @@ public class _ENetCallbacks {
     }
 
     public static VarHandle malloc$VH() {
-        return constants$93.const$0;
+      return constants$13.const$2;
     }
     /**
      * Getter for field:
@@ -52,7 +52,7 @@ public class _ENetCallbacks {
      * }
      */
     public static MemorySegment malloc$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$0.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$13.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -61,13 +61,13 @@ public class _ENetCallbacks {
      * }
      */
     public static void malloc$set(MemorySegment seg, MemorySegment x) {
-        constants$93.const$0.set(seg, x);
+      constants$13.const$2.set(seg, x);
     }
     public static MemorySegment malloc$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$0.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$13.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void malloc$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$93.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$13.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static malloc malloc(MemorySegment segment, Arena scope) {
         return malloc.ofAddress(malloc$get(segment), scope);
@@ -81,13 +81,13 @@ public class _ENetCallbacks {
 
         void apply(java.lang.foreign.MemorySegment _x0);
         static MemorySegment allocate(free fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$93.const$1, fi, constants$20.const$5, scope);
+          return RuntimeHelper.upcallStub(constants$13.const$3, fi, constants$11.const$1, scope);
         }
         static free ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return (java.lang.foreign.MemorySegment __x0) -> {
                 try {
-                    constants$93.const$2.invokeExact(symbol, __x0);
+                  constants$13.const$4.invokeExact(symbol, __x0);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -96,7 +96,7 @@ public class _ENetCallbacks {
     }
 
     public static VarHandle free$VH() {
-        return constants$93.const$3;
+      return constants$13.const$5;
     }
     /**
      * Getter for field:
@@ -105,7 +105,7 @@ public class _ENetCallbacks {
      * }
      */
     public static MemorySegment free$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$3.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$13.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -114,13 +114,13 @@ public class _ENetCallbacks {
      * }
      */
     public static void free$set(MemorySegment seg, MemorySegment x) {
-        constants$93.const$3.set(seg, x);
+      constants$13.const$5.set(seg, x);
     }
     public static MemorySegment free$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$3.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$13.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void free$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$93.const$3.set(seg.asSlice(index*sizeof()), x);
+      constants$13.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static free free(MemorySegment segment, Arena scope) {
         return free.ofAddress(free$get(segment), scope);
@@ -134,13 +134,13 @@ public class _ENetCallbacks {
 
         void apply();
         static MemorySegment allocate(no_memory fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$93.const$4, fi, constants$26.const$1, scope);
+          return RuntimeHelper.upcallStub(constants$14.const$1, fi, constants$14.const$0, scope);
         }
         static no_memory ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return () -> {
                 try {
-                    constants$26.const$4.invokeExact(symbol);
+                  constants$14.const$2.invokeExact(symbol);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -149,7 +149,7 @@ public class _ENetCallbacks {
     }
 
     public static VarHandle no_memory$VH() {
-        return constants$93.const$5;
+      return constants$14.const$3;
     }
     /**
      * Getter for field:
@@ -158,7 +158,7 @@ public class _ENetCallbacks {
      * }
      */
     public static MemorySegment no_memory$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$5.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$14.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -167,13 +167,13 @@ public class _ENetCallbacks {
      * }
      */
     public static void no_memory$set(MemorySegment seg, MemorySegment x) {
-        constants$93.const$5.set(seg, x);
+      constants$14.const$3.set(seg, x);
     }
     public static MemorySegment no_memory$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$93.const$5.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$14.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void no_memory$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$93.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$14.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static no_memory no_memory(MemorySegment segment, Arena scope) {
         return no_memory.ofAddress(no_memory$get(segment), scope);

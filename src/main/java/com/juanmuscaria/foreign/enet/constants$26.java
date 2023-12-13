@@ -2,30 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
 
 final class constants$26 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$26() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "aligned_alloc",
-        constants$24.const$1
-    );
-    static final FunctionDescriptor const$1 = FunctionDescriptor.ofVoid();
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "abort",
-        constants$26.const$1
-    );
-    static final MethodHandle const$3 = RuntimeHelper.upcallHandle(atexit$__func.class, "apply", constants$26.const$1);
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        constants$26.const$1
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "atexit",
-        constants$2.const$0
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleAcceleration"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleDeceleration"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleInterval"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("pingInterval"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("timeoutLimit"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("timeoutMinimum"));
 }
 
 

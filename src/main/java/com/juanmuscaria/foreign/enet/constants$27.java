@@ -2,30 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$27 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$27() {}
-    static final MethodHandle const$0 = RuntimeHelper.upcallHandle(at_quick_exit$__func.class, "apply", constants$26.const$1);
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "at_quick_exit",
-        constants$2.const$0
-    );
-    static final FunctionDescriptor const$2 = FunctionDescriptor.ofVoid(
-        JAVA_INT,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$3 = RuntimeHelper.upcallHandle(on_exit$__func.class, "apply", constants$27.const$2);
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        constants$27.const$2
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "on_exit",
-        constants$17.const$2
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("timeoutMaximum"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("lastRoundTripTime"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("lowestRoundTripTime"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("lastRoundTripTimeVariance"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("highestRoundTripTimeVariance"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("roundTripTime"));
 }
 
 

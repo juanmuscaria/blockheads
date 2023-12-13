@@ -2,32 +2,37 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemoryLayout;
 import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
+import java.lang.invoke.VarHandle;
 
+import static java.lang.foreign.ValueLayout.JAVA_LONG;
 final class constants$30 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$30() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "mkdtemp",
-        constants$15.const$4
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "system",
-        constants$2.const$0
-    );
-    static final FunctionDescriptor const$2 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+
+  static final VarHandle const$0 = constants$29.const$5.varHandle(MemoryLayout.PathElement.groupElement("context"));
+  static final FunctionDescriptor const$1 = FunctionDescriptor.of(JAVA_LONG,
+    RuntimeHelper.POINTER,
         RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER
+    JAVA_LONG,
+    JAVA_LONG,
+    RuntimeHelper.POINTER,
+    JAVA_LONG
     );
+  static final MethodHandle const$2 = RuntimeHelper.upcallHandle(_ENetCompressor.compress.class, "apply", constants$30.const$1);
     static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "realpath",
-        constants$30.const$2
+      constants$30.const$1
     );
-    static final MethodHandle const$4 = RuntimeHelper.upcallHandle(__compar_fn_t.class, "apply", constants$17.const$2);
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        constants$17.const$2
+  static final VarHandle const$4 = constants$29.const$5.varHandle(MemoryLayout.PathElement.groupElement("compress"));
+  static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_LONG,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    JAVA_LONG,
+    RuntimeHelper.POINTER,
+    JAVA_LONG
     );
 }
 

@@ -18,10 +18,10 @@ import java.lang.foreign.*;
 public class _ENetCompressor {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$109.const$1;
+      return constants$29.const$5;
     }
     public static VarHandle context$VH() {
-        return constants$109.const$2;
+      return constants$30.const$0;
     }
     /**
      * Getter for field:
@@ -30,7 +30,7 @@ public class _ENetCompressor {
      * }
      */
     public static MemorySegment context$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$109.const$2.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$30.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -39,13 +39,13 @@ public class _ENetCompressor {
      * }
      */
     public static void context$set(MemorySegment seg, MemorySegment x) {
-        constants$109.const$2.set(seg, x);
+      constants$30.const$0.set(seg, x);
     }
     public static MemorySegment context$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$109.const$2.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$30.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void context$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$109.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$30.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     /**
      * {@snippet :
@@ -56,13 +56,13 @@ public class _ENetCompressor {
 
         long apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, long _x2, long _x3, java.lang.foreign.MemorySegment _x4, long _x5);
         static MemorySegment allocate(compress fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$109.const$4, fi, constants$109.const$3, scope);
+          return RuntimeHelper.upcallStub(constants$30.const$2, fi, constants$30.const$1, scope);
         }
         static compress ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return (java.lang.foreign.MemorySegment __x0, java.lang.foreign.MemorySegment __x1, long __x2, long __x3, java.lang.foreign.MemorySegment __x4, long __x5) -> {
                 try {
-                    return (long)constants$109.const$5.invokeExact(symbol, __x0, __x1, __x2, __x3, __x4, __x5);
+                  return (long) constants$30.const$3.invokeExact(symbol, __x0, __x1, __x2, __x3, __x4, __x5);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -71,7 +71,7 @@ public class _ENetCompressor {
     }
 
     public static VarHandle compress$VH() {
-        return constants$110.const$0;
+      return constants$30.const$4;
     }
     /**
      * Getter for field:
@@ -80,7 +80,7 @@ public class _ENetCompressor {
      * }
      */
     public static MemorySegment compress$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$110.const$0.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$30.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -89,13 +89,13 @@ public class _ENetCompressor {
      * }
      */
     public static void compress$set(MemorySegment seg, MemorySegment x) {
-        constants$110.const$0.set(seg, x);
+      constants$30.const$4.set(seg, x);
     }
     public static MemorySegment compress$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$110.const$0.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$30.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void compress$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$110.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$30.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static compress compress(MemorySegment segment, Arena scope) {
         return compress.ofAddress(compress$get(segment), scope);
@@ -109,13 +109,13 @@ public class _ENetCompressor {
 
         long apply(java.lang.foreign.MemorySegment _x0, java.lang.foreign.MemorySegment _x1, long _x2, java.lang.foreign.MemorySegment _x3, long _x4);
         static MemorySegment allocate(decompress fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$110.const$2, fi, constants$110.const$1, scope);
+          return RuntimeHelper.upcallStub(constants$31.const$0, fi, constants$30.const$5, scope);
         }
         static decompress ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return (java.lang.foreign.MemorySegment __x0, java.lang.foreign.MemorySegment __x1, long __x2, java.lang.foreign.MemorySegment __x3, long __x4) -> {
                 try {
-                    return (long)constants$110.const$3.invokeExact(symbol, __x0, __x1, __x2, __x3, __x4);
+                  return (long) constants$31.const$1.invokeExact(symbol, __x0, __x1, __x2, __x3, __x4);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -124,7 +124,7 @@ public class _ENetCompressor {
     }
 
     public static VarHandle decompress$VH() {
-        return constants$110.const$4;
+      return constants$31.const$2;
     }
     /**
      * Getter for field:
@@ -133,7 +133,7 @@ public class _ENetCompressor {
      * }
      */
     public static MemorySegment decompress$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$110.const$4.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$31.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -142,13 +142,13 @@ public class _ENetCompressor {
      * }
      */
     public static void decompress$set(MemorySegment seg, MemorySegment x) {
-        constants$110.const$4.set(seg, x);
+      constants$31.const$2.set(seg, x);
     }
     public static MemorySegment decompress$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$110.const$4.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$31.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void decompress$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$110.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$31.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static decompress decompress(MemorySegment segment, Arena scope) {
         return decompress.ofAddress(decompress$get(segment), scope);
@@ -162,13 +162,13 @@ public class _ENetCompressor {
 
         void apply(java.lang.foreign.MemorySegment _x0);
         static MemorySegment allocate(destroy fi, Arena scope) {
-            return RuntimeHelper.upcallStub(constants$110.const$5, fi, constants$20.const$5, scope);
+          return RuntimeHelper.upcallStub(constants$31.const$3, fi, constants$11.const$1, scope);
         }
         static destroy ofAddress(MemorySegment addr, Arena arena) {
             MemorySegment symbol = addr.reinterpret(arena, null);
             return (java.lang.foreign.MemorySegment __x0) -> {
                 try {
-                    constants$93.const$2.invokeExact(symbol, __x0);
+                  constants$13.const$4.invokeExact(symbol, __x0);
                 } catch (Throwable ex$) {
                     throw new AssertionError("should not reach here", ex$);
                 }
@@ -177,7 +177,7 @@ public class _ENetCompressor {
     }
 
     public static VarHandle destroy$VH() {
-        return constants$111.const$0;
+      return constants$31.const$4;
     }
     /**
      * Getter for field:
@@ -186,7 +186,7 @@ public class _ENetCompressor {
      * }
      */
     public static MemorySegment destroy$get(MemorySegment seg) {
-        return (java.lang.foreign.MemorySegment)constants$111.const$0.get(seg);
+      return (java.lang.foreign.MemorySegment) constants$31.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -195,13 +195,13 @@ public class _ENetCompressor {
      * }
      */
     public static void destroy$set(MemorySegment seg, MemorySegment x) {
-        constants$111.const$0.set(seg, x);
+      constants$31.const$4.set(seg, x);
     }
     public static MemorySegment destroy$get(MemorySegment seg, long index) {
-        return (java.lang.foreign.MemorySegment)constants$111.const$0.get(seg.asSlice(index*sizeof()));
+      return (java.lang.foreign.MemorySegment) constants$31.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void destroy$set(MemorySegment seg, long index, MemorySegment x) {
-        constants$111.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$31.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static destroy destroy(MemorySegment segment, Arena scope) {
         return destroy.ofAddress(destroy$get(segment), scope);

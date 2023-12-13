@@ -2,19 +2,34 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
+import static java.lang.foreign.ValueLayout.*;
 final class constants$9 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$9() {}
-    static final VarHandle const$0 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__count"));
-    static final VarHandle const$1 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__owner"));
-    static final VarHandle const$2 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__nusers"));
-    static final VarHandle const$3 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__kind"));
-    static final VarHandle const$4 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__spins"));
-    static final VarHandle const$5 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("__elision"));
+
+  static final VarHandle const$0 = constants$8.const$4.varHandle(MemoryLayout.PathElement.groupElement("dataLength"));
+  static final StructLayout const$1 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_SHORT.withByteAlignment(1).withName("startSequenceNumber"),
+    JAVA_SHORT.withByteAlignment(1).withName("dataLength"),
+    JAVA_INT.withByteAlignment(1).withName("fragmentCount"),
+    JAVA_INT.withByteAlignment(1).withName("fragmentNumber"),
+    JAVA_INT.withByteAlignment(1).withName("totalLength"),
+    JAVA_INT.withByteAlignment(1).withName("fragmentOffset")
+  ).withName("_ENetProtocolSendFragment");
+  static final VarHandle const$2 = constants$9.const$1.varHandle(MemoryLayout.PathElement.groupElement("startSequenceNumber"));
+  static final VarHandle const$3 = constants$9.const$1.varHandle(MemoryLayout.PathElement.groupElement("dataLength"));
+  static final VarHandle const$4 = constants$9.const$1.varHandle(MemoryLayout.PathElement.groupElement("fragmentCount"));
+  static final VarHandle const$5 = constants$9.const$1.varHandle(MemoryLayout.PathElement.groupElement("fragmentNumber"));
 }
 
 

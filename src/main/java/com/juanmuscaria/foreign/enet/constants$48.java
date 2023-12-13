@@ -2,42 +2,41 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.invoke.MethodHandle;
+
+import static java.lang.foreign.ValueLayout.JAVA_BYTE;
+import static java.lang.foreign.ValueLayout.JAVA_INT;
 final class constants$48 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$48() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("ip_dst"),
-        MemoryLayout.sequenceLayout(40, JAVA_BYTE).withName("ip_opts")
-    ).withName("ip_opts");
-    static final StructLayout const$1 = MemoryLayout.structLayout(
-        JAVA_INT.withName("ipi_ifindex"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("ipi_spec_dst"),
-        MemoryLayout.structLayout(
-            JAVA_INT.withName("s_addr")
-        ).withName("ipi_addr")
-    ).withName("in_pktinfo");
-    static final VarHandle const$2 = constants$48.const$1.varHandle(MemoryLayout.PathElement.groupElement("ipi_ifindex"));
-    static final StructLayout const$3 = MemoryLayout.structLayout(
-        MemoryLayout.unionLayout(
-            MemoryLayout.sequenceLayout(16, JAVA_BYTE).withName("__u6_addr8"),
-            MemoryLayout.sequenceLayout(8, JAVA_SHORT).withName("__u6_addr16"),
-            MemoryLayout.sequenceLayout(4, JAVA_INT).withName("__u6_addr32")
-        ).withName("__in6_u")
-    ).withName("in6_addr");
-    static final UnionLayout const$4 = MemoryLayout.unionLayout(
-        MemoryLayout.sequenceLayout(16, JAVA_BYTE).withName("__u6_addr8"),
-        MemoryLayout.sequenceLayout(8, JAVA_SHORT).withName("__u6_addr16"),
-        MemoryLayout.sequenceLayout(4, JAVA_INT).withName("__u6_addr32")
-    ).withName("");
-    static final MemorySegment const$5 = RuntimeHelper.lookupGlobalVariable("in6addr_any", constants$48.const$3);
+
+  static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
+    "enet_host_bandwidth_throttle",
+    constants$11.const$1
+  );
+  static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+    "enet_host_random_seed",
+    constants$38.const$5
+  );
+  static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_INT,
+    RuntimeHelper.POINTER,
+    JAVA_BYTE,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+    "enet_peer_send",
+    constants$48.const$2
+  );
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_peer_receive",
+    constants$11.const$3
+  );
+  static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
+    "enet_peer_ping",
+    constants$11.const$1
+  );
 }
 
 

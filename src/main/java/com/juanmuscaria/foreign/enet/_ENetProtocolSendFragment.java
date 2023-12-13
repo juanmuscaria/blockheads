@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -21,13 +24,13 @@ import java.lang.foreign.*;
 public class _ENetProtocolSendFragment {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$89.const$3;
+      return constants$9.const$1;
     }
     public static MemorySegment header$slice(MemorySegment seg) {
         return seg.asSlice(0, 4);
     }
     public static VarHandle startSequenceNumber$VH() {
-        return constants$89.const$4;
+      return constants$9.const$2;
     }
     /**
      * Getter for field:
@@ -36,7 +39,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static short startSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$89.const$4.get(seg);
+      return (short) constants$9.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -45,16 +48,16 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void startSequenceNumber$set(MemorySegment seg, short x) {
-        constants$89.const$4.set(seg, x);
+      constants$9.const$2.set(seg, x);
     }
     public static short startSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$89.const$4.get(seg.asSlice(index*sizeof()));
+      return (short) constants$9.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void startSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$89.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$9.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle dataLength$VH() {
-        return constants$89.const$5;
+      return constants$9.const$3;
     }
     /**
      * Getter for field:
@@ -63,7 +66,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static short dataLength$get(MemorySegment seg) {
-        return (short)constants$89.const$5.get(seg);
+      return (short) constants$9.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -72,16 +75,16 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void dataLength$set(MemorySegment seg, short x) {
-        constants$89.const$5.set(seg, x);
+      constants$9.const$3.set(seg, x);
     }
     public static short dataLength$get(MemorySegment seg, long index) {
-        return (short)constants$89.const$5.get(seg.asSlice(index*sizeof()));
+      return (short) constants$9.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void dataLength$set(MemorySegment seg, long index, short x) {
-        constants$89.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$9.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle fragmentCount$VH() {
-        return constants$90.const$0;
+      return constants$9.const$4;
     }
     /**
      * Getter for field:
@@ -90,7 +93,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static int fragmentCount$get(MemorySegment seg) {
-        return (int)constants$90.const$0.get(seg);
+      return (int) constants$9.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -99,16 +102,16 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void fragmentCount$set(MemorySegment seg, int x) {
-        constants$90.const$0.set(seg, x);
+      constants$9.const$4.set(seg, x);
     }
     public static int fragmentCount$get(MemorySegment seg, long index) {
-        return (int)constants$90.const$0.get(seg.asSlice(index*sizeof()));
+      return (int) constants$9.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void fragmentCount$set(MemorySegment seg, long index, int x) {
-        constants$90.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$9.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle fragmentNumber$VH() {
-        return constants$90.const$1;
+      return constants$9.const$5;
     }
     /**
      * Getter for field:
@@ -117,7 +120,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static int fragmentNumber$get(MemorySegment seg) {
-        return (int)constants$90.const$1.get(seg);
+      return (int) constants$9.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -126,16 +129,16 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void fragmentNumber$set(MemorySegment seg, int x) {
-        constants$90.const$1.set(seg, x);
+      constants$9.const$5.set(seg, x);
     }
     public static int fragmentNumber$get(MemorySegment seg, long index) {
-        return (int)constants$90.const$1.get(seg.asSlice(index*sizeof()));
+      return (int) constants$9.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void fragmentNumber$set(MemorySegment seg, long index, int x) {
-        constants$90.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$9.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle totalLength$VH() {
-        return constants$90.const$2;
+      return constants$10.const$0;
     }
     /**
      * Getter for field:
@@ -144,7 +147,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static int totalLength$get(MemorySegment seg) {
-        return (int)constants$90.const$2.get(seg);
+      return (int) constants$10.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -153,16 +156,16 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void totalLength$set(MemorySegment seg, int x) {
-        constants$90.const$2.set(seg, x);
+      constants$10.const$0.set(seg, x);
     }
     public static int totalLength$get(MemorySegment seg, long index) {
-        return (int)constants$90.const$2.get(seg.asSlice(index*sizeof()));
+      return (int) constants$10.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void totalLength$set(MemorySegment seg, long index, int x) {
-        constants$90.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$10.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle fragmentOffset$VH() {
-        return constants$90.const$3;
+      return constants$10.const$1;
     }
     /**
      * Getter for field:
@@ -171,7 +174,7 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static int fragmentOffset$get(MemorySegment seg) {
-        return (int)constants$90.const$3.get(seg);
+      return (int) constants$10.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -180,13 +183,13 @@ public class _ENetProtocolSendFragment {
      * }
      */
     public static void fragmentOffset$set(MemorySegment seg, int x) {
-        constants$90.const$3.set(seg, x);
+      constants$10.const$1.set(seg, x);
     }
     public static int fragmentOffset$get(MemorySegment seg, long index) {
-        return (int)constants$90.const$3.get(seg.asSlice(index*sizeof()));
+      return (int) constants$10.const$1.get(seg.asSlice(index * sizeof()));
     }
     public static void fragmentOffset$set(MemorySegment seg, long index, int x) {
-        constants$90.const$3.set(seg.asSlice(index*sizeof()), x);
+      constants$10.const$1.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

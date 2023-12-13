@@ -2,25 +2,29 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
+import static java.lang.foreign.ValueLayout.JAVA_BYTE;
+import static java.lang.foreign.ValueLayout.JAVA_SHORT;
 final class constants$0 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$0() {}
     static final StructLayout const$0 = MemoryLayout.structLayout(
-        JAVA_INT.withName("quot"),
-        JAVA_INT.withName("rem")
-    ).withName("");
-    static final VarHandle const$1 = constants$0.const$0.varHandle(MemoryLayout.PathElement.groupElement("quot"));
-    static final VarHandle const$2 = constants$0.const$0.varHandle(MemoryLayout.PathElement.groupElement("rem"));
+      JAVA_SHORT.withByteAlignment(1).withName("peerID"),
+      JAVA_SHORT.withByteAlignment(1).withName("sentTime")
+    ).withName("_ENetProtocolHeader");
+  static final VarHandle const$1 = constants$0.const$0.varHandle(MemoryLayout.PathElement.groupElement("peerID"));
+  static final VarHandle const$2 = constants$0.const$0.varHandle(MemoryLayout.PathElement.groupElement("sentTime"));
     static final StructLayout const$3 = MemoryLayout.structLayout(
-        JAVA_LONG.withName("quot"),
-        JAVA_LONG.withName("rem")
-    ).withName("");
-    static final VarHandle const$4 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("quot"));
-    static final VarHandle const$5 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("rem"));
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("_ENetProtocolCommandHeader");
+  static final VarHandle const$4 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("command"));
+  static final VarHandle const$5 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("channelID"));
 }
 
 

@@ -2,29 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.MemoryLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
 final class constants$5 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$5() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        MemoryLayout.sequenceLayout(2, JAVA_INT).withName("__val")
-    ).withName("");
-    static final StructLayout const$1 = MemoryLayout.structLayout(
-        MemoryLayout.sequenceLayout(16, JAVA_LONG).withName("__val")
-    ).withName("");
-    static final StructLayout const$2 = MemoryLayout.structLayout(
-        JAVA_LONG.withName("tv_sec"),
-        JAVA_LONG.withName("tv_usec")
-    ).withName("timeval");
-    static final VarHandle const$3 = constants$5.const$2.varHandle(MemoryLayout.PathElement.groupElement("tv_sec"));
-    static final VarHandle const$4 = constants$5.const$2.varHandle(MemoryLayout.PathElement.groupElement("tv_usec"));
-    static final StructLayout const$5 = MemoryLayout.structLayout(
-        JAVA_LONG.withName("tv_sec"),
-        JAVA_LONG.withName("tv_nsec")
-    ).withName("timespec");
+
+  static final VarHandle const$0 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("channelCount"));
+  static final VarHandle const$1 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingBandwidth"));
+  static final VarHandle const$2 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("outgoingBandwidth"));
+  static final VarHandle const$3 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleInterval"));
+  static final VarHandle const$4 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleAcceleration"));
+  static final VarHandle const$5 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleDeceleration"));
 }
 
 

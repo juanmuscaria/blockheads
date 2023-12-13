@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -18,13 +21,13 @@ import java.lang.foreign.*;
 public class _ENetProtocolThrottleConfigure {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$87.const$0;
+      return constants$6.const$4;
     }
     public static MemorySegment header$slice(MemorySegment seg) {
         return seg.asSlice(0, 4);
     }
     public static VarHandle packetThrottleInterval$VH() {
-        return constants$87.const$1;
+      return constants$6.const$5;
     }
     /**
      * Getter for field:
@@ -33,7 +36,7 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static int packetThrottleInterval$get(MemorySegment seg) {
-        return (int)constants$87.const$1.get(seg);
+      return (int) constants$6.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -42,16 +45,16 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static void packetThrottleInterval$set(MemorySegment seg, int x) {
-        constants$87.const$1.set(seg, x);
+      constants$6.const$5.set(seg, x);
     }
     public static int packetThrottleInterval$get(MemorySegment seg, long index) {
-        return (int)constants$87.const$1.get(seg.asSlice(index*sizeof()));
+      return (int) constants$6.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void packetThrottleInterval$set(MemorySegment seg, long index, int x) {
-        constants$87.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$6.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle packetThrottleAcceleration$VH() {
-        return constants$87.const$2;
+      return constants$7.const$0;
     }
     /**
      * Getter for field:
@@ -60,7 +63,7 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static int packetThrottleAcceleration$get(MemorySegment seg) {
-        return (int)constants$87.const$2.get(seg);
+      return (int) constants$7.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -69,16 +72,16 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static void packetThrottleAcceleration$set(MemorySegment seg, int x) {
-        constants$87.const$2.set(seg, x);
+      constants$7.const$0.set(seg, x);
     }
     public static int packetThrottleAcceleration$get(MemorySegment seg, long index) {
-        return (int)constants$87.const$2.get(seg.asSlice(index*sizeof()));
+      return (int) constants$7.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void packetThrottleAcceleration$set(MemorySegment seg, long index, int x) {
-        constants$87.const$2.set(seg.asSlice(index*sizeof()), x);
+      constants$7.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle packetThrottleDeceleration$VH() {
-        return constants$87.const$3;
+      return constants$7.const$1;
     }
     /**
      * Getter for field:
@@ -87,7 +90,7 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static int packetThrottleDeceleration$get(MemorySegment seg) {
-        return (int)constants$87.const$3.get(seg);
+      return (int) constants$7.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -96,13 +99,13 @@ public class _ENetProtocolThrottleConfigure {
      * }
      */
     public static void packetThrottleDeceleration$set(MemorySegment seg, int x) {
-        constants$87.const$3.set(seg, x);
+      constants$7.const$1.set(seg, x);
     }
     public static int packetThrottleDeceleration$get(MemorySegment seg, long index) {
-        return (int)constants$87.const$3.get(seg.asSlice(index*sizeof()));
+      return (int) constants$7.const$1.get(seg.asSlice(index * sizeof()));
     }
     public static void packetThrottleDeceleration$set(MemorySegment seg, long index, int x) {
-        constants$87.const$3.set(seg.asSlice(index*sizeof()), x);
+      constants$7.const$1.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

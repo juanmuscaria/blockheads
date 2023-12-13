@@ -2,38 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$35 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$35() {}
-    static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_LONG,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        JAVA_LONG
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "mbstowcs",
-        constants$35.const$0
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "wcstombs",
-        constants$35.const$0
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "rpmatch",
-        constants$2.const$0
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "getsubopt",
-        constants$21.const$5
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "getloadavg",
-        constants$29.const$4
-    );
+
+  static final VarHandle const$0 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("packetSize"));
+  static final VarHandle const$1 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("headerFlags"));
+  static final VarHandle const$2 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("commandCount"));
+  static final VarHandle const$3 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("bufferCount"));
+  static final VarHandle const$4 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("checksum"));
+  static final VarHandle const$5 = constants$32.const$5.varHandle(MemoryLayout.PathElement.groupElement("receivedData"));
 }
 
 

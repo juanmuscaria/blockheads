@@ -22,10 +22,10 @@ import java.lang.foreign.*;
 public class _ENetChannel {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$99.const$2;
+      return constants$20.const$0;
     }
     public static VarHandle outgoingReliableSequenceNumber$VH() {
-        return constants$99.const$3;
+      return constants$20.const$1;
     }
     /**
      * Getter for field:
@@ -34,7 +34,7 @@ public class _ENetChannel {
      * }
      */
     public static short outgoingReliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$99.const$3.get(seg);
+      return (short) constants$20.const$1.get(seg);
     }
     /**
      * Setter for field:
@@ -43,16 +43,16 @@ public class _ENetChannel {
      * }
      */
     public static void outgoingReliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$99.const$3.set(seg, x);
+      constants$20.const$1.set(seg, x);
     }
     public static short outgoingReliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$99.const$3.get(seg.asSlice(index*sizeof()));
+      return (short) constants$20.const$1.get(seg.asSlice(index * sizeof()));
     }
     public static void outgoingReliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$99.const$3.set(seg.asSlice(index*sizeof()), x);
+      constants$20.const$1.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle outgoingUnreliableSequenceNumber$VH() {
-        return constants$99.const$4;
+      return constants$20.const$2;
     }
     /**
      * Getter for field:
@@ -61,7 +61,7 @@ public class _ENetChannel {
      * }
      */
     public static short outgoingUnreliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$99.const$4.get(seg);
+      return (short) constants$20.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -70,16 +70,16 @@ public class _ENetChannel {
      * }
      */
     public static void outgoingUnreliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$99.const$4.set(seg, x);
+      constants$20.const$2.set(seg, x);
     }
     public static short outgoingUnreliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$99.const$4.get(seg.asSlice(index*sizeof()));
+      return (short) constants$20.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void outgoingUnreliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$99.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$20.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle usedReliableWindows$VH() {
-        return constants$99.const$5;
+      return constants$20.const$3;
     }
     /**
      * Getter for field:
@@ -88,7 +88,7 @@ public class _ENetChannel {
      * }
      */
     public static short usedReliableWindows$get(MemorySegment seg) {
-        return (short)constants$99.const$5.get(seg);
+      return (short) constants$20.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -97,19 +97,19 @@ public class _ENetChannel {
      * }
      */
     public static void usedReliableWindows$set(MemorySegment seg, short x) {
-        constants$99.const$5.set(seg, x);
+      constants$20.const$3.set(seg, x);
     }
     public static short usedReliableWindows$get(MemorySegment seg, long index) {
-        return (short)constants$99.const$5.get(seg.asSlice(index*sizeof()));
+      return (short) constants$20.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void usedReliableWindows$set(MemorySegment seg, long index, short x) {
-        constants$99.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$20.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static MemorySegment reliableWindows$slice(MemorySegment seg) {
         return seg.asSlice(6, 32);
     }
     public static VarHandle incomingReliableSequenceNumber$VH() {
-        return constants$100.const$0;
+      return constants$20.const$4;
     }
     /**
      * Getter for field:
@@ -118,7 +118,7 @@ public class _ENetChannel {
      * }
      */
     public static short incomingReliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$100.const$0.get(seg);
+      return (short) constants$20.const$4.get(seg);
     }
     /**
      * Setter for field:
@@ -127,16 +127,16 @@ public class _ENetChannel {
      * }
      */
     public static void incomingReliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$100.const$0.set(seg, x);
+      constants$20.const$4.set(seg, x);
     }
     public static short incomingReliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$100.const$0.get(seg.asSlice(index*sizeof()));
+      return (short) constants$20.const$4.get(seg.asSlice(index * sizeof()));
     }
     public static void incomingReliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$100.const$0.set(seg.asSlice(index*sizeof()), x);
+      constants$20.const$4.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle incomingUnreliableSequenceNumber$VH() {
-        return constants$100.const$1;
+      return constants$20.const$5;
     }
     /**
      * Getter for field:
@@ -145,7 +145,7 @@ public class _ENetChannel {
      * }
      */
     public static short incomingUnreliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$100.const$1.get(seg);
+      return (short) constants$20.const$5.get(seg);
     }
     /**
      * Setter for field:
@@ -154,13 +154,13 @@ public class _ENetChannel {
      * }
      */
     public static void incomingUnreliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$100.const$1.set(seg, x);
+      constants$20.const$5.set(seg, x);
     }
     public static short incomingUnreliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$100.const$1.get(seg.asSlice(index*sizeof()));
+      return (short) constants$20.const$5.get(seg.asSlice(index * sizeof()));
     }
     public static void incomingUnreliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$100.const$1.set(seg.asSlice(index*sizeof()), x);
+      constants$20.const$5.set(seg.asSlice(index * sizeof()), x);
     }
     public static MemorySegment incomingReliableCommands$slice(MemorySegment seg) {
         return seg.asSlice(48, 16);

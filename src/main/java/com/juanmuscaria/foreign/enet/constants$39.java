@@ -2,33 +2,42 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.invoke.MethodHandle;
+
+import static java.lang.foreign.ValueLayout.JAVA_INT;
 final class constants$39 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$39() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        JAVA_SHORT.withName("ss_family"),
-        MemoryLayout.sequenceLayout(118, JAVA_BYTE).withName("__ss_padding"),
-        JAVA_LONG.withName("__ss_align")
-    ).withName("sockaddr_storage");
-    static final VarHandle const$1 = constants$39.const$0.varHandle(MemoryLayout.PathElement.groupElement("ss_family"));
-    static final VarHandle const$2 = constants$39.const$0.varHandle(MemoryLayout.PathElement.groupElement("__ss_align"));
-    static final StructLayout const$3 = MemoryLayout.structLayout(
-        RuntimeHelper.POINTER.withName("msg_name"),
-        JAVA_INT.withName("msg_namelen"),
-        MemoryLayout.paddingLayout(4),
-        RuntimeHelper.POINTER.withName("msg_iov"),
-        JAVA_LONG.withName("msg_iovlen"),
-        RuntimeHelper.POINTER.withName("msg_control"),
-        JAVA_LONG.withName("msg_controllen"),
-        JAVA_INT.withName("msg_flags"),
-        MemoryLayout.paddingLayout(4)
-    ).withName("msghdr");
-    static final VarHandle const$4 = constants$39.const$3.varHandle(MemoryLayout.PathElement.groupElement("msg_name"));
-    static final VarHandle const$5 = constants$39.const$3.varHandle(MemoryLayout.PathElement.groupElement("msg_namelen"));
+
+  static final FunctionDescriptor const$0 = FunctionDescriptor.of(JAVA_INT,
+    JAVA_INT,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+    "enet_initialize_with_callbacks",
+    constants$39.const$0
+  );
+  static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
+    "enet_deinitialize",
+    constants$14.const$0
+  );
+  static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+    "enet_linked_version",
+    constants$38.const$5
+  );
+  static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
+    "enet_time_get",
+    constants$38.const$5
+  );
+  static final FunctionDescriptor const$5 = FunctionDescriptor.ofVoid(
+    JAVA_INT
+  );
+  static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+    "enet_time_set",
+    constants$39.const$5
+  );
 }
 
 

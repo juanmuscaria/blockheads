@@ -2,37 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$22 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$22() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "lrand48_r",
-        constants$17.const$2
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "nrand48_r",
-        constants$21.const$5
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "mrand48_r",
-        constants$17.const$2
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "jrand48_r",
-        constants$21.const$5
-    );
-    static final FunctionDescriptor const$4 = FunctionDescriptor.of(JAVA_INT,
-        JAVA_LONG,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "srand48_r",
-        constants$22.const$4
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingSessionID"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("data"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("state"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("channels"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("channelCount"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("incomingBandwidth"));
 }
 
 

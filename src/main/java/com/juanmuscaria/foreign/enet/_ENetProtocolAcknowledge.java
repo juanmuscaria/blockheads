@@ -2,8 +2,11 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.MemorySegment;
+import java.lang.foreign.SegmentAllocator;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
 
 /**
  * {@snippet :
@@ -17,13 +20,13 @@ import java.lang.foreign.*;
 public class _ENetProtocolAcknowledge {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$81.const$3;
+      return constants$1.const$1;
     }
     public static MemorySegment header$slice(MemorySegment seg) {
         return seg.asSlice(0, 4);
     }
     public static VarHandle receivedReliableSequenceNumber$VH() {
-        return constants$81.const$4;
+      return constants$1.const$2;
     }
     /**
      * Getter for field:
@@ -32,7 +35,7 @@ public class _ENetProtocolAcknowledge {
      * }
      */
     public static short receivedReliableSequenceNumber$get(MemorySegment seg) {
-        return (short)constants$81.const$4.get(seg);
+      return (short) constants$1.const$2.get(seg);
     }
     /**
      * Setter for field:
@@ -41,16 +44,16 @@ public class _ENetProtocolAcknowledge {
      * }
      */
     public static void receivedReliableSequenceNumber$set(MemorySegment seg, short x) {
-        constants$81.const$4.set(seg, x);
+      constants$1.const$2.set(seg, x);
     }
     public static short receivedReliableSequenceNumber$get(MemorySegment seg, long index) {
-        return (short)constants$81.const$4.get(seg.asSlice(index*sizeof()));
+      return (short) constants$1.const$2.get(seg.asSlice(index * sizeof()));
     }
     public static void receivedReliableSequenceNumber$set(MemorySegment seg, long index, short x) {
-        constants$81.const$4.set(seg.asSlice(index*sizeof()), x);
+      constants$1.const$2.set(seg.asSlice(index * sizeof()), x);
     }
     public static VarHandle receivedSentTime$VH() {
-        return constants$81.const$5;
+      return constants$1.const$3;
     }
     /**
      * Getter for field:
@@ -59,7 +62,7 @@ public class _ENetProtocolAcknowledge {
      * }
      */
     public static short receivedSentTime$get(MemorySegment seg) {
-        return (short)constants$81.const$5.get(seg);
+      return (short) constants$1.const$3.get(seg);
     }
     /**
      * Setter for field:
@@ -68,13 +71,13 @@ public class _ENetProtocolAcknowledge {
      * }
      */
     public static void receivedSentTime$set(MemorySegment seg, short x) {
-        constants$81.const$5.set(seg, x);
+      constants$1.const$3.set(seg, x);
     }
     public static short receivedSentTime$get(MemorySegment seg, long index) {
-        return (short)constants$81.const$5.get(seg.asSlice(index*sizeof()));
+      return (short) constants$1.const$3.get(seg.asSlice(index * sizeof()));
     }
     public static void receivedSentTime$set(MemorySegment seg, long index, short x) {
-        constants$81.const$5.set(seg.asSlice(index*sizeof()), x);
+      constants$1.const$3.set(seg.asSlice(index * sizeof()), x);
     }
     public static long sizeof() { return $LAYOUT().byteSize(); }
     public static MemorySegment allocate(SegmentAllocator allocator) { return allocator.allocate($LAYOUT()); }

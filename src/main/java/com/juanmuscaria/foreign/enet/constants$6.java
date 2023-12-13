@@ -2,42 +2,39 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$6 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$6() {}
-    static final VarHandle const$0 = constants$5.const$5.varHandle(MemoryLayout.PathElement.groupElement("tv_sec"));
-    static final VarHandle const$1 = constants$5.const$5.varHandle(MemoryLayout.PathElement.groupElement("tv_nsec"));
-    static final StructLayout const$2 = MemoryLayout.structLayout(
-        MemoryLayout.sequenceLayout(16, JAVA_LONG).withName("__fds_bits")
-    ).withName("");
-    static final FunctionDescriptor const$3 = FunctionDescriptor.of(JAVA_INT,
-        JAVA_INT,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$4 = RuntimeHelper.downcallHandle(
-        "select",
-        constants$6.const$3
-    );
-    static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT,
-        JAVA_INT,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
-        "pselect",
-        constants$6.const$5
-    );
+
+  static final VarHandle const$0 = constants$4.const$0.varHandle(MemoryLayout.PathElement.groupElement("connectID"));
+  static final StructLayout const$1 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+    JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth")
+  ).withName("_ENetProtocolBandwidthLimit");
+  static final VarHandle const$2 = constants$6.const$1.varHandle(MemoryLayout.PathElement.groupElement("incomingBandwidth"));
+  static final VarHandle const$3 = constants$6.const$1.varHandle(MemoryLayout.PathElement.groupElement("outgoingBandwidth"));
+  static final StructLayout const$4 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration")
+  ).withName("_ENetProtocolThrottleConfigure");
+  static final VarHandle const$5 = constants$6.const$4.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleInterval"));
 }
 
 

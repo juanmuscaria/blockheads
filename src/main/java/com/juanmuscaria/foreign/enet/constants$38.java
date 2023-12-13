@@ -2,29 +2,27 @@
 
 package com.juanmuscaria.foreign.enet;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemoryLayout;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+
+import static java.lang.foreign.ValueLayout.JAVA_INT;
 final class constants$38 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$38() {}
-    static final MethodHandle const$0 = RuntimeHelper.downcallHandle(
-        "futimes",
-        constants$17.const$4
+
+  static final VarHandle const$0 = constants$37.const$5.varHandle(MemoryLayout.PathElement.groupElement("type"));
+  static final VarHandle const$1 = constants$37.const$5.varHandle(MemoryLayout.PathElement.groupElement("peer"));
+  static final VarHandle const$2 = constants$37.const$5.varHandle(MemoryLayout.PathElement.groupElement("channelID"));
+  static final VarHandle const$3 = constants$37.const$5.varHandle(MemoryLayout.PathElement.groupElement("data"));
+  static final VarHandle const$4 = constants$37.const$5.varHandle(MemoryLayout.PathElement.groupElement("packet"));
+  static final FunctionDescriptor const$5 = FunctionDescriptor.of(JAVA_INT);
+  static final MethodHandle const$6 = RuntimeHelper.downcallHandle(
+    "enet_initialize",
+    constants$38.const$5
     );
-    static final StructLayout const$1 = MemoryLayout.structLayout(
-        RuntimeHelper.POINTER.withName("iov_base"),
-        JAVA_LONG.withName("iov_len")
-    ).withName("iovec");
-    static final VarHandle const$2 = constants$38.const$1.varHandle(MemoryLayout.PathElement.groupElement("iov_base"));
-    static final VarHandle const$3 = constants$38.const$1.varHandle(MemoryLayout.PathElement.groupElement("iov_len"));
-    static final StructLayout const$4 = MemoryLayout.structLayout(
-        JAVA_SHORT.withName("sa_family"),
-        MemoryLayout.sequenceLayout(14, JAVA_BYTE).withName("sa_data")
-    ).withName("sockaddr");
-    static final VarHandle const$5 = constants$38.const$4.varHandle(MemoryLayout.PathElement.groupElement("sa_family"));
 }
 
 

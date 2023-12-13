@@ -2,44 +2,41 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
+import java.lang.invoke.MethodHandle;
+
+import static java.lang.foreign.ValueLayout.JAVA_LONG;
 final class constants$12 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$12() {}
-    static final StructLayout const$0 = MemoryLayout.structLayout(
-        MemoryLayout.unionLayout(
-            JAVA_LONG.withName("__value64"),
-            MemoryLayout.structLayout(
-                JAVA_INT.withName("__low"),
-                JAVA_INT.withName("__high")
-            ).withName("__value32")
-        ).withName("__wseq"),
-        MemoryLayout.unionLayout(
-            JAVA_LONG.withName("__value64"),
-            MemoryLayout.structLayout(
-                JAVA_INT.withName("__low"),
-                JAVA_INT.withName("__high")
-            ).withName("__value32")
-        ).withName("__g1_start"),
-        MemoryLayout.sequenceLayout(2, JAVA_INT).withName("__g_refs"),
-        MemoryLayout.sequenceLayout(2, JAVA_INT).withName("__g_size"),
-        JAVA_INT.withName("__g1_orig_size"),
-        JAVA_INT.withName("__wrefs"),
-        MemoryLayout.sequenceLayout(2, JAVA_INT).withName("__g_signals")
-    ).withName("__pthread_cond_s");
-    static final VarHandle const$1 = constants$12.const$0.varHandle(MemoryLayout.PathElement.groupElement("__g1_orig_size"));
-    static final VarHandle const$2 = constants$12.const$0.varHandle(MemoryLayout.PathElement.groupElement("__wrefs"));
-    static final StructLayout const$3 = MemoryLayout.structLayout(
-        JAVA_INT.withName("__data")
-    ).withName("");
-    static final VarHandle const$4 = constants$12.const$3.varHandle(MemoryLayout.PathElement.groupElement("__data"));
-    static final UnionLayout const$5 = MemoryLayout.unionLayout(
-        MemoryLayout.sequenceLayout(4, JAVA_BYTE).withName("__size"),
-        JAVA_INT.withName("__align")
-    ).withName("");
+
+  static final FunctionDescriptor const$0 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
+    "enet_list_move",
+    constants$12.const$0
+  );
+  static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_LONG,
+    RuntimeHelper.POINTER
+  );
+  static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
+    "enet_list_size",
+    constants$12.const$2
+  );
+  static final StructLayout const$4 = MemoryLayout.structLayout(
+    RuntimeHelper.POINTER.withName("malloc"),
+    RuntimeHelper.POINTER.withName("free"),
+    RuntimeHelper.POINTER.withName("no_memory")
+  ).withName("_ENetCallbacks");
+  static final FunctionDescriptor const$5 = FunctionDescriptor.of(RuntimeHelper.POINTER,
+    JAVA_LONG
+  );
 }
 
 

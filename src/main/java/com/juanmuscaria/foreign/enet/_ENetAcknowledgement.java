@@ -17,13 +17,13 @@ import java.lang.foreign.*;
 public class _ENetAcknowledgement {
 
     public static MemoryLayout $LAYOUT() {
-        return constants$96.const$1;
+        return constants$16.const$5;
     }
     public static MemorySegment acknowledgementList$slice(MemorySegment seg) {
         return seg.asSlice(0, 16);
     }
     public static VarHandle sentTime$VH() {
-        return constants$96.const$2;
+        return constants$17.const$0;
     }
     /**
      * Getter for field:
@@ -32,7 +32,7 @@ public class _ENetAcknowledgement {
      * }
      */
     public static int sentTime$get(MemorySegment seg) {
-        return (int)constants$96.const$2.get(seg);
+        return (int) constants$17.const$0.get(seg);
     }
     /**
      * Setter for field:
@@ -41,13 +41,13 @@ public class _ENetAcknowledgement {
      * }
      */
     public static void sentTime$set(MemorySegment seg, int x) {
-        constants$96.const$2.set(seg, x);
+        constants$17.const$0.set(seg, x);
     }
     public static int sentTime$get(MemorySegment seg, long index) {
-        return (int)constants$96.const$2.get(seg.asSlice(index*sizeof()));
+        return (int) constants$17.const$0.get(seg.asSlice(index * sizeof()));
     }
     public static void sentTime$set(MemorySegment seg, long index, int x) {
-        constants$96.const$2.set(seg.asSlice(index*sizeof()), x);
+        constants$17.const$0.set(seg.asSlice(index * sizeof()), x);
     }
     public static MemorySegment command$slice(MemorySegment seg) {
         return seg.asSlice(20, 48);

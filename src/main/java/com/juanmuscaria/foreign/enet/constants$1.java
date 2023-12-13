@@ -2,28 +2,49 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
+import java.lang.foreign.MemoryLayout;
+import java.lang.foreign.StructLayout;
 import java.lang.invoke.VarHandle;
-import java.lang.foreign.*;
+
 import static java.lang.foreign.ValueLayout.*;
 final class constants$1 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$1() {}
-    static final VarHandle const$0 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("quot"));
-    static final VarHandle const$1 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("rem"));
-    static final FunctionDescriptor const$2 = FunctionDescriptor.of(JAVA_LONG);
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "__ctype_get_mb_cur_max",
-        constants$1.const$2
-    );
-    static final FunctionDescriptor const$4 = FunctionDescriptor.of(JAVA_DOUBLE,
-        RuntimeHelper.POINTER
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "atof",
-        constants$1.const$4
-    );
+
+  static final VarHandle const$0 = constants$0.const$3.varHandle(MemoryLayout.PathElement.groupElement("reliableSequenceNumber"));
+  static final StructLayout const$1 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_SHORT.withByteAlignment(1).withName("receivedReliableSequenceNumber"),
+    JAVA_SHORT.withByteAlignment(1).withName("receivedSentTime")
+  ).withName("_ENetProtocolAcknowledge");
+  static final VarHandle const$2 = constants$1.const$1.varHandle(MemoryLayout.PathElement.groupElement("receivedReliableSequenceNumber"));
+  static final VarHandle const$3 = constants$1.const$1.varHandle(MemoryLayout.PathElement.groupElement("receivedSentTime"));
+  static final StructLayout const$4 = MemoryLayout.structLayout(
+    MemoryLayout.structLayout(
+      JAVA_BYTE.withName("command"),
+      JAVA_BYTE.withName("channelID"),
+      JAVA_SHORT.withByteAlignment(1).withName("reliableSequenceNumber")
+    ).withName("header"),
+    JAVA_SHORT.withByteAlignment(1).withName("outgoingPeerID"),
+    JAVA_BYTE.withName("incomingSessionID"),
+    JAVA_BYTE.withName("outgoingSessionID"),
+    JAVA_INT.withByteAlignment(1).withName("mtu"),
+    JAVA_INT.withByteAlignment(1).withName("windowSize"),
+    JAVA_INT.withByteAlignment(1).withName("channelCount"),
+    JAVA_INT.withByteAlignment(1).withName("incomingBandwidth"),
+    JAVA_INT.withByteAlignment(1).withName("outgoingBandwidth"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleInterval"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleAcceleration"),
+    JAVA_INT.withByteAlignment(1).withName("packetThrottleDeceleration"),
+    JAVA_INT.withByteAlignment(1).withName("connectID"),
+    JAVA_INT.withByteAlignment(1).withName("data")
+  ).withName("_ENetProtocolConnect");
+  static final VarHandle const$5 = constants$1.const$4.varHandle(MemoryLayout.PathElement.groupElement("outgoingPeerID"));
 }
 
 

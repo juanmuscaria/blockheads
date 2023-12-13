@@ -2,39 +2,20 @@
 
 package com.juanmuscaria.foreign.enet;
 
-import java.lang.invoke.MethodHandle;
-import java.lang.foreign.*;
-import static java.lang.foreign.ValueLayout.*;
+import java.lang.foreign.MemoryLayout;
+import java.lang.invoke.VarHandle;
+
 final class constants$25 {
 
     // Suppresses default constructor, ensuring non-instantiability.
     private constants$25() {}
-    static final FunctionDescriptor const$0 = FunctionDescriptor.of(RuntimeHelper.POINTER,
-        RuntimeHelper.POINTER,
-        JAVA_LONG,
-        JAVA_LONG
-    );
-    static final MethodHandle const$1 = RuntimeHelper.downcallHandle(
-        "reallocarray",
-        constants$25.const$0
-    );
-    static final MethodHandle const$2 = RuntimeHelper.downcallHandle(
-        "alloca",
-        constants$4.const$3
-    );
-    static final MethodHandle const$3 = RuntimeHelper.downcallHandle(
-        "valloc",
-        constants$4.const$3
-    );
-    static final FunctionDescriptor const$4 = FunctionDescriptor.of(JAVA_INT,
-        RuntimeHelper.POINTER,
-        JAVA_LONG,
-        JAVA_LONG
-    );
-    static final MethodHandle const$5 = RuntimeHelper.downcallHandle(
-        "posix_memalign",
-        constants$25.const$4
-    );
+
+  static final VarHandle const$0 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetLoss"));
+  static final VarHandle const$1 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetLossVariance"));
+  static final VarHandle const$2 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottle"));
+  static final VarHandle const$3 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleLimit"));
+  static final VarHandle const$4 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleCounter"));
+  static final VarHandle const$5 = constants$21.const$0.varHandle(MemoryLayout.PathElement.groupElement("packetThrottleEpoch"));
 }
 
 
