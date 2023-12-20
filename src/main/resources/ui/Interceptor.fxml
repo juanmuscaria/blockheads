@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.Card?>
+<?import atlantafx.base.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="root" stylesheets="@/css/interceptor.css" xmlns="http://javafx.com/javafx/21.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juanmuscaria.blockheads.ui.InterceptorController">
+    <children>
+        <SplitPane dividerPositions="0.75" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                   minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="-Infinity" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <TabPane layoutX="7.0" layoutY="6.0" prefHeight="255.0" prefWidth="456.0"
+                                 tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0"
+                                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <tabs>
+                                <Tab text="Proxy">
+                                    <content>
+                                        <AnchorPane>
+                                            <children>
+                                                <HBox alignment="CENTER" layoutY="14.0"
+                                                      maxWidth="1.7976931348623157E308" minWidth="590.0"
+                                                      AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0"
+                                                      AnchorPane.topAnchor="14.0">
+                                                    <children>
+                                                        <Card maxWidth="345.0" minHeight="-Infinity"
+                                                              minWidth="-Infinity" prefHeight="96.0" prefWidth="276.0"
+                                                              HBox.hgrow="SOMETIMES">
+                                                            <header>
+                                                                <Label contentDisplay="CENTER" layoutX="195.0"
+                                                                       layoutY="58.0" text="Proxy Host"/>
+                                                            </header>
+                                                            <body>
+                                                                <InputGroup layoutX="265.0" layoutY="129.0"
+                                                                            maxWidth="1.7976931348623157E308">
+                                                                    <children>
+                                                                        <TextField fx:id="proxyHostname"
+                                                                                   alignment="CENTER" layoutX="300.0"
+                                                                                   layoutY="10.0"
+                                                                                   maxWidth="1.7976931348623157E308"
+                                                                                   minHeight="-Infinity"
+                                                                                   minWidth="-Infinity"
+                                                                                   prefWidth="140.0"
+                                                                                   promptText="0.0.0.0"
+                                                                                   HBox.hgrow="SOMETIMES">
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="DEFAULT"/>
+                                                                            </cursor>
+                                                                        </TextField>
+                                                                        <Label layoutX="14.0" layoutY="16.0" text=":"/>
+                                                                        <TextField fx:id="proxyPort" alignment="CENTER"
+                                                                                   layoutX="300.0" layoutY="10.0"
+                                                                                   maxWidth="100.0"
+                                                                                   minHeight="-Infinity"
+                                                                                   minWidth="-Infinity" prefWidth="88.0"
+                                                                                   promptText="15152"
+                                                                                   HBox.hgrow="SOMETIMES">
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="DEFAULT"/>
+                                                                            </cursor>
+                                                                        </TextField>
+                                                                    </children>
+                                                                </InputGroup>
+                                                            </body>
+                                                            <HBox.margin>
+                                                                <Insets left="4.0"/>
+                                                            </HBox.margin>
+                                                        </Card>
+                                                        <Separator orientation="VERTICAL" HBox.hgrow="NEVER"/>
+                                                        <Card maxWidth="345.0" minHeight="-Infinity"
+                                                              minWidth="-Infinity" prefHeight="96.0" prefWidth="276.0"
+                                                              HBox.hgrow="SOMETIMES">
+                                                            <header>
+                                                                <Label contentDisplay="CENTER" layoutX="195.0"
+                                                                       layoutY="58.0" text="Server Host"/>
+                                                            </header>
+                                                            <body>
+                                                                <InputGroup layoutX="265.0" layoutY="129.0"
+                                                                            maxWidth="1.7976931348623157E308">
+                                                                    <children>
+                                                                        <TextField fx:id="serverHostname"
+                                                                                   alignment="CENTER" layoutX="300.0"
+                                                                                   layoutY="10.0"
+                                                                                   maxWidth="1.7976931348623157E308"
+                                                                                   minHeight="-Infinity"
+                                                                                   minWidth="-Infinity"
+                                                                                   prefWidth="140.0"
+                                                                                   promptText="127.0.0.1"
+                                                                                   HBox.hgrow="SOMETIMES">
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="DEFAULT"/>
+                                                                            </cursor>
+                                                                        </TextField>
+                                                                        <Label layoutX="14.0" layoutY="16.0" text=":"/>
+                                                                        <TextField fx:id="serverPort" alignment="CENTER"
+                                                                                   layoutX="300.0" layoutY="10.0"
+                                                                                   maxWidth="100.0"
+                                                                                   minHeight="-Infinity"
+                                                                                   minWidth="-Infinity" prefWidth="88.0"
+                                                                                   promptText="15151"
+                                                                                   HBox.hgrow="SOMETIMES">
+                                                                            <cursor>
+                                                                                <Cursor fx:constant="DEFAULT"/>
+                                                                            </cursor>
+                                                                        </TextField>
+                                                                    </children>
+                                                                </InputGroup>
+                                                            </body>
+                                                            <HBox.margin>
+                                                                <Insets right="4.0"/>
+                                                            </HBox.margin>
+                                                        </Card>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="2.0" layoutY="130.0" prefHeight="35.0"
+                                                      prefWidth="596.0" AnchorPane.leftAnchor="2.0"
+                                                      AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="130.0">
+                                                    <children>
+                                                        <Button fx:id="proxyStartStop" defaultButton="true"
+                                                                mnemonicParsing="false" onAction="#onProxyStartStop"
+                                                                scaleShape="false" text="Start Proxy"
+                                                                textAlignment="CENTER"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" layoutX="2.0" layoutY="165.0" prefHeight="35.0"
+                                                      prefWidth="596.0" AnchorPane.leftAnchor="2.0"
+                                                      AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="165.0">
+                                                    <children>
+                                                        <Button fx:id="stateButton" disable="true"
+                                                                mnemonicParsing="false" onAction="#onStateButton"
+                                                                styleClass="flat" text="Not Started"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
+                                <Tab text="Packet Overview">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <children>
+                                            <VBox layoutX="206.0" layoutY="23.0" AnchorPane.bottomAnchor="0.0"
+                                                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                  AnchorPane.topAnchor="0.0">
+                                                <children>
+                                                    <HBox alignment="CENTER" prefHeight="36.0" prefWidth="596.0">
+                                                        <VBox.margin>
+                                                            <Insets left="2.0" right="2.0"/>
+                                                        </VBox.margin>
+                                                        <children>
+                                                            <InputGroup alignment="CENTER_RIGHT"
+                                                                        maxHeight="1.7976931348623157E308"
+                                                                        minHeight="-Infinity" minWidth="-Infinity"
+                                                                        prefHeight="36.0" prefWidth="147.0"
+                                                                        HBox.hgrow="SOMETIMES">
+                                                                <children>
+                                                                    <Label alignment="CENTER" maxHeight="-Infinity"
+                                                                           prefHeight="30.0" text="Packet ID"/>
+                                                                    <TextField fx:id="packetIdField" alignment="CENTER"
+                                                                               editable="false" minHeight="-Infinity"
+                                                                               minWidth="-Infinity" prefHeight="30.0"
+                                                                               prefWidth="52.0" promptText="000"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                            <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                                                            <InputGroup alignment="CENTER" layoutX="10.0" layoutY="10.0"
+                                                                        maxHeight="1.7976931348623157E308"
+                                                                        maxWidth="1.7976931348623157E308"
+                                                                        minHeight="-Infinity" minWidth="-Infinity"
+                                                                        prefHeight="36.0" prefWidth="181.0"
+                                                                        HBox.hgrow="NEVER">
+                                                                <children>
+                                                                    <Label contentDisplay="CENTER" maxHeight="-Infinity"
+                                                                           minHeight="-Infinity" minWidth="-Infinity"
+                                                                           prefHeight="30.0" text="Compressed"
+                                                                           textOverrun="CLIP"/>
+                                                                    <TextField fx:id="compressedField"
+                                                                               alignment="CENTER" editable="false"
+                                                                               minHeight="-Infinity"
+                                                                               minWidth="-Infinity" prefHeight="30.0"
+                                                                               prefWidth="75.0" promptText="false"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                            <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                                                            <InputGroup alignment="CENTER_LEFT" layoutX="277.0"
+                                                                        layoutY="10.0"
+                                                                        maxHeight="1.7976931348623157E308"
+                                                                        maxWidth="1.7976931348623157E308"
+                                                                        minHeight="-Infinity" minWidth="-Infinity"
+                                                                        prefHeight="36.0" prefWidth="159.0"
+                                                                        HBox.hgrow="SOMETIMES">
+                                                                <children>
+                                                                    <Label alignment="CENTER" maxHeight="-Infinity"
+                                                                           minHeight="-Infinity" minWidth="-Infinity"
+                                                                           prefHeight="30.0" text="From"
+                                                                           textOverrun="CLIP"/>
+                                                                    <TextField fx:id="sideField" alignment="CENTER"
+                                                                               editable="false" minHeight="-Infinity"
+                                                                               minWidth="-Infinity" prefHeight="30.0"
+                                                                               prefWidth="90.0" promptText="SIDE"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                        </children>
+                                                    </HBox>
+                                                    <HBox alignment="CENTER" layoutX="20.0" layoutY="18.0"
+                                                          prefHeight="36.0" prefWidth="596.0">
+                                                        <children>
+                                                            <InputGroup alignment="CENTER_RIGHT" minHeight="-Infinity"
+                                                                        minWidth="-Infinity" prefHeight="36.0"
+                                                                        prefWidth="182.0" HBox.hgrow="ALWAYS">
+                                                                <children>
+                                                                    <Label alignment="CENTER" maxHeight="-Infinity"
+                                                                           prefHeight="30.0" text="ENet Channel"/>
+                                                                    <TextField fx:id="enetChannelField"
+                                                                               alignment="CENTER" editable="false"
+                                                                               minHeight="-Infinity"
+                                                                               minWidth="-Infinity" prefHeight="30.0"
+                                                                               prefWidth="51.0" promptText="000"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                            <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                                                            <InputGroup alignment="CENTER_LEFT" layoutX="10.0"
+                                                                        layoutY="10.0" minHeight="-Infinity"
+                                                                        minWidth="-Infinity" prefHeight="36.0"
+                                                                        prefWidth="222.0" HBox.hgrow="ALWAYS">
+                                                                <children>
+                                                                    <Label alignment="CENTER" maxHeight="-Infinity"
+                                                                           prefHeight="30.0" text="ENet Flags"
+                                                                           textOverrun="CLIP"/>
+                                                                    <TextField fx:id="flagsField" alignment="CENTER"
+                                                                               editable="false" minHeight="-Infinity"
+                                                                               minWidth="-Infinity" prefHeight="30.0"
+                                                                               prefWidth="113.0" promptText="0"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                        </children>
+                                                        <VBox.margin>
+                                                            <Insets left="8.0" right="8.0" top="8.0"/>
+                                                        </VBox.margin>
+                                                    </HBox>
+                                                    <HBox alignment="CENTER" layoutX="18.0" layoutY="62.0"
+                                                          prefHeight="36.0" prefWidth="596.0">
+                                                        <children>
+                                                            <InputGroup maxHeight="1.7976931348623157E308"
+                                                                        maxWidth="1.7976931348623157E308"
+                                                                        minHeight="-Infinity" minWidth="-Infinity"
+                                                                        HBox.hgrow="ALWAYS">
+                                                                <children>
+                                                                    <Label alignment="CENTER" maxHeight="-Infinity"
+                                                                           prefHeight="30.0" text="Mapped to"/>
+                                                                    <TextField fx:id="mappingField" alignment="CENTER"
+                                                                               editable="false" maxHeight="-Infinity"
+                                                                               maxWidth="1.7976931348623157E308"
+                                                                               minHeight="-Infinity" prefHeight="30.0"
+                                                                               promptText="No Mapping"
+                                                                               HBox.hgrow="SOMETIMES"/>
+                                                                </children>
+                                                            </InputGroup>
+                                                        </children>
+                                                        <VBox.margin>
+                                                            <Insets left="8.0" right="8.0" top="8.0"/>
+                                                        </VBox.margin>
+                                                    </HBox>
+                                                </children>
+                                                <padding>
+                                                    <Insets left="8.0" right="8.0" top="8.0"/>
+                                                </padding>
+                                            </VBox>
+                                        </children>
+                                    </AnchorPane>
+                                </Tab>
+                                <Tab text="Parsed Data">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                    prefWidth="200.0"/>
+                                    </content>
+                                </Tab>
+                                <Tab text="Raw Data">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <children>
+                                            <BorderPane fx:id="hexTab" prefHeight="259.0" prefWidth="600.0"
+                                                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                        </children>
+                                    </AnchorPane>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="96.0" minWidth="0.0">
+                    <ListView fx:id="packetList" fixedCellSize="20.0" prefHeight="200.0" prefWidth="200.0"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                              AnchorPane.topAnchor="0.0"/>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

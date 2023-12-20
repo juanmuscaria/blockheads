@@ -26,6 +26,20 @@ public class BHHelper {
     return (data[offset] == (byte) 0x1F && data[1 + offset] == (byte) 0x8B);
   }
 
+  public static boolean isProbablyCompressed(byte[] data) {
+    if (data.length < 2) {
+      return false;
+    }
+
+    for (int i = 0; i < data.length - 1; i++) {
+      if (data[i] == (byte) 0x1F && data[i + 1] == (byte) 0x8B) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   public static boolean isBinaryPropertyList(byte[] data) {
     return isBinaryPropertyList(data, 0);
   }

@@ -3,10 +3,12 @@ Not actually a server, more of an improved version of [BlockProxy](https://githu
 All you can find here is a working ENet proxy and packet analyzer with some progress on reverse engineering the network 
 protocol and world formats
 
-For proxying the game, checkout the class `com.juanmuscaria.blockheads.intercept.BHInterceptor`,
-it has all the fancy stuff for that.
+## Running stuff
 
-# Warning, disgusting code quality
-This mess contains code from when I was stupid, 
-with little to no clean up from less stupid but still stupid present me,
-It's a complete mess, and the jna code should not be used *at all*, most stuff here is for research purposes
+Right now there's no proper release for the project, you must run everything from Gradle.
+Gradle will take care of downloading the correct Java version.
+
+* `./gradlew runInterceptorGui` - Runs the packet analyzer with GUI frontend
+* `./gradlew runInterceptor -Pargs=''` - Runs the packet analyzer. Add CLI args inside the quotes
+* `./gradlew runWorldInspector -Pargs=''` - Runs the world inspector, it dumps all world DBs. Add CLI args inside the
+  quotes

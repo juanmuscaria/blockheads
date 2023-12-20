@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Monaspace Argon Regular';
+    src: url('/fonts/MonaspaceArgon-Regular.otf');
+}
+
+.root {
+    -fx-font-family: "Monaspace Argon Regular";
+}
+
+.hex-wrapper .table-view .scroll-bar:vertical .track {
+	-fx-padding: 0;
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-background-radius: 0;
+	-fx-border-radius: 2;
+}
+.hex-wrapper .table-view .scroll-bar:vertical .increment-button ,
+.hex-wrapper .table-view .scroll-bar:vertical .decrement-button {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0;
+	-fx-padding: 0 0 0 0;
+}
+.hex-wrapper .table-view .scroll-bar:vertical .increment-arrow,
+.hex-wrapper .table-view .scroll-bar:vertical .decrement-arrow {
+	-fx-shape: " ";
+	-fx-padding: 0;
+}
+.hex-wrapper .table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: transparent;
+	-fx-background-insets: 0, 0, 0;
+	-fx-background-radius: 2em;
+    -fx-padding: 0px;
+}
+   /* Hide accessible hint */
+.hex-wrapper .table-view {
+	-fx-focus-color: transparent;
+}
+   /* sizing */
+.hex-content-table {
+	-fx-min-width: 470px;
+	-fx-fixed-cell-size: 20px;
+}
+.hex-offset-table {
+	-fx-min-width: 80px;
+    -fx-pref-width: 80px;
+    -fx-fixed-cell-size: 20px;
+}
+.hex-text-table {
+	-fx-min-width: 146px;
+	-fx-pref-width: 146px;
+	-fx-fixed-cell-size: 20px;
+}
+.hex-cell {
+	-fx-font-family: 'monospaced';
+	-fx-padding: 0;
+}
+.hex-cell *.text-field {
+	-fx-font-family: 'monospaced';
+	-fx-text-fill: rgb(0, 0, 0);
+	-fx-background-color: transparent;
+ 	-fx-background-insets: 0;
+ 	-fx-background-radius: 0;
+ 	-fx-border-width: 0;
+ 	-fx-padding: -5 0 -5 0;
+}

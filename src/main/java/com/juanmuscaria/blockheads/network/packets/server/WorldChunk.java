@@ -7,7 +7,7 @@ import com.juanmuscaria.blockheads.network.packets.Packet;
 
 import java.nio.ByteBuffer;
 
-public class WorldFragment implements Packet {
+public class WorldChunk implements Packet {
   public static byte ID = 0x04;
   // Maybe I have those flipped, idk
   int x; // used to tell which part of the world it is

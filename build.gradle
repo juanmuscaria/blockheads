@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group 'com.juanmuscaria'
@@ -7,6 +8,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url 'https://www.jitpack.io' }
 }
 
 java {
@@ -26,12 +28,20 @@ dependencies {
 
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'org.lmdbjava:lmdbjava:0.8.3'
-    implementation 'com.googlecode.lanterna:lanterna:3.1.1'
     implementation 'it.unimi.dsi:fastutil:8.5.12'
+    implementation 'io.github.mkpaz:atlantafx-base:2.0.1'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-core-impl:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-core-api:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-css-impl:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-css-api:ansi4j-1.1.0'
+    implementation 'org.fxmisc.richtext:richtextfx:0.11.2'
+    implementation 'info.picocli:picocli:4.7.5'
+    implementation 'org.fusesource.jansi:jansi:2.4.1'
+    implementation 'net.datafaker:datafaker:2.0.2'
 
     // Logging
-    implementation 'org.slf4j:slf4j-api:1.7.36'
-    runtimeOnly 'ch.qos.logback:logback-classic:1.2.11'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
 
     // Be able to decode objective c stuff
     implementation 'com.googlecode.plist:dd-plist:1.27'
@@ -47,6 +57,13 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
+
+javafx {
+    version = '17'
+    modules = ['javafx.controls', 'javafx.fxml']
+    configurations = ['implementation', 'testImplementation']
+}
+
 
 test {
     useJUnitPlatform()
@@ -64,4 +81,23 @@ tasks.withType(JavaExec).configureEach {
     jvmArgs += '--enable-preview'
     jvmArgs += '--enable-native-access=ALL-UNNAMED'
     jvmArgs += '--add-opens=java.base/java.nio=ALL-UNNAMED,'
+    jvmArgs += '-Djansi.mode=force'
+    jvmArgs += '-Dpicocli.ansi=true'
+}
+
+[
+        ["Interceptor", "com.juanmuscaria.blockheads.intercept.BHInterceptor"],
+        ["InterceptorGui", "com.juanmuscaria.blockheads.intercept.BHInterceptorApplication"],
+        ["WorldInspector", "com.juanmuscaria.blockheads.intercept.WorldInspector"],
+].each { taskConfig ->
+    tasks.register("run${taskConfig[0]}",) {
+        group = "application"
+        finalizedBy "run"
+        doFirst {
+            run.mainClass = "${taskConfig[1]}"
+            if (args) {
+                run.argsString(args as String)
+            }
+        }
+    }
 }
