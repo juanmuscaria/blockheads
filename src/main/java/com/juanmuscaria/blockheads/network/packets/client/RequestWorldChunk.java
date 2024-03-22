@@ -5,21 +5,11 @@ import com.juanmuscaria.blockheads.network.packets.Packet;
 import java.nio.ByteBuffer;
 import java.util.HexFormat;
 
-public class RequestWorldFragment implements Packet {
+public class RequestWorldChunk extends Packet {
   public static final byte ID = 0x03;
   int x; // used to tell which part of the world it is
   int y; // used to tell which part of the world it is
   byte[] unknownData; // Unknown remaining data
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-    //TODO: Encode
-  }
 
   @Override
   public void decode(ByteBuffer buffer) {
@@ -30,11 +20,7 @@ public class RequestWorldFragment implements Packet {
   }
 
   @Override
-  public String toString() {
-    return "RequestWorldFragment{" +
-      "x=" + x +
-      ", y=" + y +
-      ", unparsed=" + HexFormat.of().formatHex(unknownData) +
-      '}';
+  protected String genDescription() {
+    return STR."RequestWorldChunk(x:\{x}, y:\{y}}, unknownData:\{HexFormat.of().formatHex(unknownData)})";
   }
 }

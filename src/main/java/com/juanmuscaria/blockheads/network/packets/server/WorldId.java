@@ -16,7 +16,7 @@ import static com.juanmuscaria.blockheads.network.BHHelper.toBhUuid;
 import static com.juanmuscaria.blockheads.network.BHHelper.toJavaUuid;
 
 @ToString
-public class WorldId implements Packet {
+public class WorldId extends Packet {
   public static final byte ID = 0x23;
   public static final String FAKE_UUID = "84a23c0ba0f44633b05d5d0242b1a5e7";
   private UUID worldId;
@@ -29,15 +29,10 @@ public class WorldId implements Packet {
     this.worldId = UUID.fromString(toJavaUuid(worldId));
   }
 
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
   @SneakyThrows(IOException.class) // Impossible exception
   @Override
   public void encode(ByteBuffer buffer) {
-    buffer.put(getId()); // Packet id
+    buffer.put(ID); // Packet id
     buffer.putChar('&'); // Not sure what this is supposed to mean, but seems to be required?
     var dict = new NSDictionary();
     dict.put("worldID", toBhUuid(this.worldId.toString()));
@@ -54,6 +49,4 @@ public class WorldId implements Packet {
     var dict = BHHelper.<NSDictionary>parseProperty(remaining);
     this.worldId = UUID.fromString(toJavaUuid(dict.get("worldID").toString()));
   }
-
-
 }

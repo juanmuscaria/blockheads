@@ -8,20 +8,10 @@ import java.util.HexFormat;
 
 // Not exactly sure, seems to remove dynamic objects from the world?
 @ToString
-public class RemoveObjects implements Packet {
+public class DynamicObjectRemove extends Packet {
   public static byte ID = 0x09;
   private byte keys;
   private String data;
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {

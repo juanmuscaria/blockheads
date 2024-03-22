@@ -11,20 +11,10 @@ import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
 
 @ToString
-public class UpdatePlayerInventory implements Packet {
+public class UpdatePlayerInventory extends Packet {
   public static final byte ID = 0x21;
   int blockheadId;
   NSArray data; // Array of slots? Seems to change as you move around, baskets seems to be a dictionary
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {

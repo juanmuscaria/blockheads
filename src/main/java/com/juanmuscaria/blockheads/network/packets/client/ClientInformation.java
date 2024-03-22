@@ -8,7 +8,7 @@ import lombok.ToString;
 import java.nio.ByteBuffer;
 
 @ToString
-public class ClientInformation implements Packet {
+public class ClientInformation extends Packet {
   public static final byte ID = 0x1F;
   String alias;
   String iCloudID;
@@ -18,11 +18,6 @@ public class ClientInformation implements Packet {
   String playerID;
   String udidNew;
   boolean voiceConnected;
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
 
   @Override
   public void encode(ByteBuffer buffer) {

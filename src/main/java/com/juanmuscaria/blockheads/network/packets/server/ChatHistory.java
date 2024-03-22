@@ -12,19 +12,10 @@ import java.nio.ByteBuffer;
 import java.util.LinkedList;
 
 @ToString
-public class ChatHistory implements Packet {
+public class ChatHistory extends Packet {
   public static byte ID = 0x25;
   private final LinkedList<ChatMessage> messages = new LinkedList<>();
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
+  private NSDictionary photos;
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {
@@ -36,7 +27,7 @@ public class ChatHistory implements Packet {
       this.messages.add(ChatMessage.fromDictionary((NSDictionary) message));
     }
 
-    var photoArray = (NSDictionary) dict.get("photos");
+    this.photos = (NSDictionary) dict.get("photos");
     //Packet.printDict(photoArray);
     //TODO: parse photos
   }

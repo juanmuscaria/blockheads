@@ -209,7 +209,7 @@ public class BHInterceptor implements Runnable {
     }
 
     if (detectedPacket != null) {
-      logger.info("{} [{}] {}", direction.getPacketFlow(), HexFormat.of().formatHex(new byte[]{id}), detectedPacket);
+        logger.info("{} [{}] {}", direction.getPacketFlow(), HexFormat.of().formatHex(new byte[]{id}), detectedPacket.describePacket());
     } else {
       // No packet detected, dump its raw data
       var content = "<EMPTY>";

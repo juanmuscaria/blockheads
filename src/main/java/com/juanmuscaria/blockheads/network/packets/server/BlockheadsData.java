@@ -13,22 +13,12 @@ import java.util.Map;
 
 //TODO: parse data
 @ToString
-public class BlockheadsData implements Packet {
+public class BlockheadsData extends Packet {
   public static byte ID = 0x06;
   byte[] unknownData = new byte[124];
   byte[] foundItems_v2; // foundItems_v2 - gzip, plist
   byte[] foundItems; // foundItems - plist
   Map<String, byte[]> blockheadFiles = new HashMap<>(); // blockheadFiles - values are gzip
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {

@@ -11,32 +11,22 @@ import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
 
 @ToString
-public class ServerInformation implements Packet {
+public class ServerInformation extends Packet {
   public static byte ID = 0x01;
-  private double worldTime; //worldTime
-  private String worldName; //worldName
-  private int startPortalPosX;//startPortalPos.x
-  private int startPortalPosY;//startPortalPos.y
-  private int portalLevel;//portalLevel
-  private int highestPointX;//highestPoint.x
-  private int highestPointY;//highestPoint.y
-  private double credit;//credit
-  private String saveId;//saveID
-  private long randomSeed;//randomSeed
-  private double noRainTimer;//noRainTimer
-  private int worldWidthMacro;//worldWidthMacro
-  private boolean expertMode;//expertMode
-  private int minorVersion;//minorVersion
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
+  private double worldTime;    // worldTime
+  private String worldName;    // worldName
+  private int startPortalPosX; // startPortalPos.x
+  private int startPortalPosY; // startPortalPos.y
+  private int portalLevel;     // portalLevel
+  private int highestPointX;   // highestPoint.x
+  private int highestPointY;   // highestPoint.y
+  private double credit;       // credit
+  private String saveId;       // saveID
+  private long randomSeed;     // randomSeed
+  private double noRainTimer;  // noRainTimer
+  private int worldWidthMacro; // worldWidthMacro
+  private boolean expertMode;  // expertMode
+  private int minorVersion;    // minorVersion
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {

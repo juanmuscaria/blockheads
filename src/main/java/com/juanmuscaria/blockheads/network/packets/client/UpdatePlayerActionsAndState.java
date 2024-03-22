@@ -12,14 +12,9 @@ import java.util.zip.GZIPInputStream;
 
 // Seems to contain data about blockheads, what they are doing and their state
 @ToString
-public class UpdatePlayerActionsAndState implements Packet {
+public class UpdatePlayerActionsAndState extends Packet {
   public static final byte ID = 0x20;
   public NSDictionary data;
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
 
   @Override
   public void encode(ByteBuffer buffer) {

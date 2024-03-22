@@ -19,18 +19,18 @@ public class PacketRegistry {
     serverPackets.put(WorldChunk.ID, WorldChunk.class);
     serverPackets.put(BlockheadsData.ID, BlockheadsData.class);
     serverPackets.put(ChatHistory.ID, ChatHistory.class);
-    serverPackets.put(CreateObjects.ID, CreateObjects.class);
-    serverPackets.put(UpdateObjects.ID, UpdateObjects.class);
-    serverPackets.put(RemoveObjects.ID, RemoveObjects.class);
+    serverPackets.put(DynamicObjectCreate.ID, DynamicObjectCreate.class);
+    serverPackets.put(DynamicObjectUpdate.ID, DynamicObjectUpdate.class);
+    serverPackets.put(DynamicObjectRemove.ID, DynamicObjectRemove.class);
     serverPackets.put(KeepAliveResponse.ID, KeepAliveResponse.class);
 
     clientPackets.put(ClientInformation.ID, ClientInformation.class);
-    clientPackets.put(RequestWorldFragment.ID, RequestWorldFragment.class);
+    clientPackets.put(RequestWorldChunk.ID, RequestWorldChunk.class);
     clientPackets.put(RequestChatHistory.ID, RequestChatHistory.class);
-    clientPackets.put(RequestCreateObjects.ID, RequestCreateObjects.class);
+    clientPackets.put(DynamicObjectCreateClient.ID, DynamicObjectCreateClient.class);
     clientPackets.put(KeepAlive.ID, KeepAlive.class);
     clientPackets.put(UpdatePlayerActionsAndState.ID, UpdatePlayerActionsAndState.class);
-    clientPackets.put(RequestRemoveObjects.ID, RequestRemoveObjects.class);
+    clientPackets.put(DynamicObjectRemoveClient.ID, DynamicObjectRemoveClient.class);
     clientPackets.put(UpdatePlayerInventory.ID, UpdatePlayerInventory.class);
   }
 

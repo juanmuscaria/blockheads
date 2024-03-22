@@ -1,4 +1,4 @@
-package com.juanmuscaria.blockheads.network.packets.server;
+package com.juanmuscaria.blockheads.network.packets.client;
 
 import com.dd.plist.NSArray;
 import com.juanmuscaria.blockheads.network.BHHelper;
@@ -10,21 +10,12 @@ import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
 
+
 @ToString
-public class UpdateObjects implements Packet {
-  public static byte ID = 0x08;
+public class DynamicObjectRemoveClient extends Packet {
+  public static byte ID = 0x0c;
   private byte keys;
-  private NSArray data; // a gzipped plist containing an array of base64 stuff from the dynamic world I think
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
-
-  @Override
-  public void encode(ByteBuffer buffer) {
-
-  }
+  private NSArray data;
 
   @Override
   public void decode(ByteBuffer buffer) throws Exception {

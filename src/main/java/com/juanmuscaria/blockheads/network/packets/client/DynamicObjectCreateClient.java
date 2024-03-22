@@ -12,15 +12,10 @@ import java.util.zip.GZIPInputStream;
 
 
 @ToString
-public class RequestRemoveObjects implements Packet {
-  public static byte ID = 0x0c;
+public class DynamicObjectCreateClient extends Packet {
+  public static byte ID = 0x0a;
   private byte keys;
   private NSArray data;
-
-  @Override
-  public byte getId() {
-    return ID;
-  }
 
   @Override
   public void encode(ByteBuffer buffer) {
