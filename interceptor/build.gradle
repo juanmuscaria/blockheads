@@ -1,0 +1,11 @@
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation project(":")
+}
+
+application {
+    mainClass = "com.juanmuscaria.blockheads.BHInterceptor"
+}

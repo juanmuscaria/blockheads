@@ -8,7 +8,7 @@ protocol and world formats
 Right now there's no proper release for the project, you must run everything from Gradle.
 Gradle will take care of downloading the correct Java version.
 
-* `./gradlew runInterceptorGui` - Runs the packet analyzer with GUI frontend
-* `./gradlew runInterceptor -Pargs=''` - Runs the packet analyzer. Add CLI args inside the quotes
-* `./gradlew runWorldInspector -Pargs=''` - Runs the world inspector, it dumps all world DBs. Add CLI args inside the
+* `./gradlew :interceptor-gui:run` - Runs the packet analyzer with GUI frontend
+* `./gradlew :interceptor:run -Pargs=''` - Runs the packet analyzer. Add CLI args inside the quotes
+* `./gradlew :world-inspector:run -Pargs=''` - Runs the world inspector, it dumps all world DBs. Add CLI args inside the
   quotes

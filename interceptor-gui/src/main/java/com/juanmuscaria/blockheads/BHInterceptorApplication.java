@@ -1,4 +1,4 @@
-package com.juanmuscaria.blockheads.intercept;
+package com.juanmuscaria.blockheads;
 
 import atlantafx.base.theme.CupertinoDark;
 import javafx.application.Application;

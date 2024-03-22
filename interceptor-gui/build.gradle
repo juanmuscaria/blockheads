@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://www.jitpack.io' }
+}
+
+
+dependencies {
+    implementation project(":")
+    implementation project(":interceptor")
+    implementation 'io.github.mkpaz:atlantafx-base:2.0.1'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-core-impl:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-core-api:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-css-impl:ansi4j-1.1.0'
+    implementation 'com.github.PavelKastornyy.ansi4j:ansi4j-css-api:ansi4j-1.1.0'
+    implementation 'net.datafaker:datafaker:2.0.2'
+    implementation 'org.fxmisc.richtext:richtextfx:0.11.2'
+}
+
+javafx {
+    version = '17'
+    modules = ['javafx.controls', 'javafx.fxml']
+    configurations = ['implementation', 'testImplementation']
+}
+
+application {
+    mainClass = "com.juanmuscaria.blockheads.BHInterceptorApplication"
+}

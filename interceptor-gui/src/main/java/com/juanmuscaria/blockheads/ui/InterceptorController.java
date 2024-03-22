@@ -5,7 +5,7 @@ import ch.qos.logback.classic.PatternLayout;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
 import ch.qos.logback.core.Context;
-import com.juanmuscaria.blockheads.intercept.BHInterceptor;
+import com.juanmuscaria.blockheads.BHInterceptor;
 import com.juanmuscaria.blockheads.network.BHHelper;
 import com.juanmuscaria.blockheads.network.InterceptedPacket;
 import com.juanmuscaria.blockheads.ui.component.HexEditor;

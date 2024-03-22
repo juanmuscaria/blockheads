@@ -1,4 +1,4 @@
-package com.juanmuscaria.blockheads.intercept;
+package com.juanmuscaria.blockheads;
 
 import com.juanmuscaria.blockheads.world.WorldInfo;
 import org.lmdbjava.CursorIterable.KeyVal;

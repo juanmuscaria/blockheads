@@ -1,6 +1,5 @@
-package com.juanmuscaria.blockheads.intercept;
+package com.juanmuscaria.blockheads;
 
-import com.juanmuscaria.blockheads.NativeHelper;
 import com.juanmuscaria.blockheads.network.InterceptedPacket;
 import com.juanmuscaria.blockheads.network.Side;
 import com.juanmuscaria.blockheads.network.packets.Packet;
