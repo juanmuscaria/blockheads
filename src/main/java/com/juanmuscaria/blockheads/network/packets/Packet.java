@@ -26,7 +26,7 @@ public abstract class Packet {
 
   public final String describePacket() {
     if (description == null) {
-      description = this.describePacket();
+        description = this.genDescription();
     }
     return description;
   }
